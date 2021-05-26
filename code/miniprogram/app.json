@@ -1,0 +1,105 @@
+{
+  "pages": [
+    "pages/localPages/home/home",
+    "pages/localPages/selAppEnd/selAppEnd",
+    "pages/localPages/cart/cart",
+    "pages/localPages/user/user",
+    "pages/localPages/search/search",
+    "pages/localPages/shopList/shopList",
+    "pages/localPages/myAddress/myAddress",
+    "pages/localPages/login/login",
+    "pages/localPages/myOrder/myOrder",
+    "pages/localPages/aboutUs/aboutUs",
+    "pages/localPages/editAddress/editAddress",
+    "pages/localPages/shopDetail/shopDetail",
+    "pages/localPages/goodsDetail/goodsDetail",
+    "pages/localPages/pay/pay",
+    "pages/localPages/map/map",
+    "pages/localPages/ugShopDetail/ugShopDetail",
+    "pages/localPages/myGoods/myGoods",
+    "pages/localPages/addGoods/addGoods",
+    "pages/localPages/editNote/editNote",
+    "pages/localPages/confirmOrder/confirmOrder"
+  ], 
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于确定收货地址"
+    }
+  },
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "小鳄鱼跑腿",
+    "navigationBarBackgroundColor": "#32acad",
+    "enablePullDownRefresh": false,
+    "backgroundColor": "#f6f6f6"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#32acad",
+    "backgroundColor": "#f8faf8",
+    "list": [
+      {
+        "pagePath": "pages/localPages/home/home",
+        "text": "首页",
+        "iconPath": "./icons/home_o.png",
+        "selectedIconPath": "./icons/home.png"
+      },
+      {
+        "pagePath": "pages/localPages/cart/cart",
+        "text": "购物车",
+        "iconPath": "./icons/cart_o.png",
+        "selectedIconPath": "./icons/cart.png"
+      },
+      {
+        "pagePath": "pages/localPages/user/user",
+        "text": "我的",
+        "iconPath": "./icons/user_o.png",
+        "selectedIconPath": "./icons/user.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "ShopEnd/",
+      "pages": [
+        "pages/localPages/orderProcess/orderProcess",
+        "pages/localPages/setting/setting",
+        "pages/localPages/shopManage/shopManage",
+        "pages/localPages/goodsManage/goodsManage",
+        "pages/localPages/categoryManage/categoryManage",
+        "pages/localPages/sortAndBatch/sortAndBatch",
+        "pages/localPages/addGoods/addGoods",
+        "pages/localPages/goodsInfo/goodsInfo",
+        "pages/localPages/shopDelivery/shopDelivery",
+        "pages/localPages/editShopOpenTime/editShopOpenTime",
+        "pages/localPages/editShopBasicInfo/editShopBasicInfo",
+        "pages/localPages/shopOpenTime/shopOpenTime",
+        "pages/localPages/editGoodsPic/editGoodsPic",
+        "pages/localPages/login/login",
+        "pages/localPages/initialShop/initialShop",
+        "pages/localPages/editCategory/editCategory",
+        "pages/localPages/editAssistant/editAssistant",
+        "pages/localPages/getUserInfo/getUserInfo",
+        "pages/localPages/editDeliver/editDeliver",
+        "pages/localPages/checkOrder/checkOrder",
+        "pages/localPages/editFee/editFee"
+      ]
+    },
+    {
+      "root": "adminEnd/",
+      "pages": [
+        "pages/localPages/censorUgGoods/censorUgGoods",
+        "pages/localPages/adminPage/adminPage",
+        "pages/localPages/editSwiper/editSwiper",
+        "pages/localPages/editGoodsPic/editGoodsPic",
+        "pages/localPages/editRecommendShop/editRecommendShop",
+        "pages/localPages/ugGoodsManage/ugGoodsManage",
+        "pages/localPages/ugGoodsInfo/ugGoodsInfo",
+        "pages/localPages/ugCateManage/ugCateManage",
+        "pages/localPages/checkOrder/checkOrder",
+        "pages/localPages/deleteShop/deleteShop"
+      ]
+    }
+  ],
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,279 @@
+.pay_page {
+  padding: 20rpx 25rpx;
+  padding-bottom: 100rpx;
+  background: linear-gradient(to bottom, #32acad, white);
+}
+.pay_page .receive_address_row {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+}
+.pay_page .receive_address_row .address_title {
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #e9e8ea;
+  font-weight: bold;
+  font-size: 35rpx;
+  color: var(--themeColor);
+}
+.pay_page .receive_address_row .address_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15rpx 0;
+}
+.pay_page .receive_address_row .user_info_row .user_address {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+.pay_page .receive_address_row .user_info_row .user_info {
+  margin-top: 10rpx;
+  color: #9b9b9b;
+  align-items: center;
+  padding-bottom: 15rpx;
+}
+.pay_page .receive_address_row .user_info_row .user_info .user_phone {
+  margin-left: 15rpx;
+}
+.pay_page .receive_time_row {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+}
+.pay_page .receive_time_row .sel_time_title {
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #e9e8ea;
+  font-weight: bold;
+  font-size: 35rpx;
+  color: var(--themeColor);
+}
+.pay_page .receive_time_row .sel_time_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15rpx 0;
+}
+.pay_page .receive_time_row .receive_time_info_row {
+  font-weight: bold;
+  padding: 15rpx;
+}
+.pay_page .cart_content {
+  border-radius: 30rpx;
+  background-color: white;
+  margin-top: 25rpx;
+  border: 1rpx solid #f0eef4;
+  padding: 0 20rpx;
+}
+.pay_page .cart_content .shop_title_warp {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #e9e8ea;
+  justify-content: space-between;
+}
+.pay_page .cart_content .shop_title_warp .shop_title_text {
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_pic_warp {
+  flex: 1;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_pic_warp .goods_pic {
+  width: 150rpx;
+  height: 150rpx;
+  flex: none;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_pic_warp .mask {
+  width: 150rpx;
+  height: 150rpx;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num {
+  flex: 3;
+  padding: 0 20rpx;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num .goods_name {
+  padding: 5rpx 0;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num .goods_num {
+  padding: 5rpx 0;
+  font-weight: bold;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num .short_of_stock_title {
+  padding: 5rpx 0;
+  color: red;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num .delete_num {
+  padding: 5rpx 0;
+  margin-right: 10rpx;
+  font-weight: normal;
+  text-decoration: line-through;
+  color: #838383;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_name_num .goods_stock {
+  flex-direction: row;
+  padding: 5rpx 0;
+  font-weight: bold;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .goods_price {
+  flex: 1;
+  font-weight: bold;
+  text-align: end;
+}
+.pay_page .cart_content .goods_warp .goods_item_warp .delete_price {
+  padding: 5rpx 0;
+  margin-right: 10rpx;
+  font-weight: normal;
+  text-decoration: line-through;
+  color: #838383;
+}
+.pay_page .note {
+  padding: 20rpx;
+  border-radius: 15rpx;
+  margin: 20rpx 0;
+  background-color: white;
+  position: relative;
+}
+.pay_page .note .note_text {
+  text-align: end;
+  margin-right: 8rpx;
+  position: absolute;
+  top: 25%;
+  right: 2%;
+  width: 40%;
+  color: #7f7f7f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.pay_page .total_pay_warp {
+  background-color: white;
+  border-radius: 30rpx;
+}
+.pay_page .total_pay_warp .warn_msg_warp {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.pay_page .total_pay_warp .pay_info_warp {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.pay_page .total_pay_warp .pay_info_warp .pay_info {
+  display: flex;
+  flex-direction: column;
+}
+.pay_page .total_pay_warp .pay_info_warp .pay_info .total_price {
+  font-size: 30rpx;
+  padding: 5rpx;
+  text-align: right;
+}
+.pay_page .total_pay_warp .pay_info_warp .pay_info .total_price .total_price_text {
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.pay_page .total_pay_warp .pay_info_warp .pay_info .fee {
+  font-size: 30rpx;
+  text-align: right;
+}
+.pay_page .total_pay_warp .pay_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rpx;
+  font-size: 38rpx;
+  flex: none;
+  margin: auto 0;
+  padding: 25rpx 35rpx;
+}
+.pay_page .total_pay_warp .active {
+  color: white;
+  background-color: var(--themeColor);
+}
+.pay_page .total_pay_warp .inactive {
+  color: #ffffff;
+  background-color: #a2d9da;
+}
+.pay_page .arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 3rpx solid #999;
+  border-right: 3rpx solid #999;
+  transform: rotate(45deg);
+}
+.receive_time_picker .weui-tabs-bar__wrp {
+  border-bottom: 1px solid #eee;
+  margin-top: 10px;
+}
+.receive_time_picker .weui-tabs-swiper {
+  width: 100%;
+  height: 50vh;
+}
+.receive_time_picker .weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+.receive_time_picker .tab-bar-title__selected {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.receive_time_picker .tab-content {
+  height: 50vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx;
+}
+.receive_time_picker .tab-content scroll-view {
+  height: 100%;
+}
+.receive_time_picker .tab-content button {
+  border-radius: 0;
+}
+.receive_time_picker .tab-content button::after {
+  border: none;
+  border-radius: 0;
+}
+.receive_time_picker .tab-content .sel_deliver_time_item {
+  font-size: 28rpx;
+  padding: 25rpx 5rpx;
+  background-color: white;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.receive_time_picker .tab-content .sel_deliver_time_item .time {
+  font-weight: bold;
+  text-align: center;
+}
+.receive_time_picker .tab-content .sel_deliver_time_item .warn_messange {
+  text-align: center;
+  color: red;
+}
+.receive_time_picker .tab-content .invalid {
+  background-color: #f7f7f7;
+  color: #d1d1d1;
+}
+.receive_time_picker .tab-content .padding {
+  height: 10vh;
+}
+/*此处自定义点击元素后产生的阴影反馈效果
+此段代码必须放在css最后 */
+.view_hover {
+  background: #dedede !important;
+}

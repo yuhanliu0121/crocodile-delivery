@@ -1,0 +1,31 @@
+<wxs module="filters" src="../../../lib/calculate/calculate.wxs"></wxs>
+<wxs module="toLocalTime" src="../../../lib/goods/toLocalTime.wxs" module="filters"></wxs>
+<view class="goods_info_warp">
+    <view class="goods_pic_warp">
+        <image class="goods_pic" src="{{goodsInfo.goodsPicUrl}}" mode="widthFix"></image>
+        <!-- <view wx:if="{{!goodsInfo.goodsAvailable}}" class="mask">已下架</view> -->
+    </view>
+    <view class="goods_basic_info_warp">
+        <view class="goods_name">{{goodsInfo.goodsName}}</view>
+        <!-- <view class="goods_buy_limit">每单限购: {{goodsInfo.goodsBuyLimit}}</view> -->
+        <view class="bottom_warp">
+            <view class="goods_price">$ {{goodsInfo.goodsPrice}}</view>
+        </view>
+        <view class="goods_detail_warp">
+            <view class="goods_detail_title">商品详情</view>
+            <text class="goods_detail">{{goodsInfo.goodsDetail}}</text>
+        </view>
+        <view class="pass_time_warp">
+            <view class="title">上架时间</view>
+            <view class="pass_time">{{filters.formatDate(goodsInfo.passTime)}}</view>
+        </view>
+        <view class="contact_info_warp">
+            <view class="title">联系方式</view>
+            <view class="contact_type">
+                {{contactTypeText}}:
+                <text class="contact_info"></text>
+                {{goodsInfo.contactInfo}}
+            </view>
+        </view>
+    </view>
+</view>

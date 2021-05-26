@@ -1,0 +1,70 @@
+<wxs module="filters" src="../../lib/calculate/toFix.wxs"></wxs>
+<view class="order_content">
+    <!-- 订单基础信息: 单号，顾客名，电话，地址 -->
+    <view class="basic_info">
+        <!-- <view class="order_num"># {{orderDetail.orderNum}}</view> -->
+        <view class="customer_name">{{orderDetail.receiverName}}</view>
+        <view class="customer_tel" bindtap="handleTapTel">
+            <text class="iconfont icon-dianhua"></text>
+            {{orderDetail.phoneNumber}}
+        </view>
+        <view class="address">
+            <text user-select>{{orderDetail.street}}, {{orderDetail.city}}</text>
+        </view>
+        <view class="order_time_info">
+            预定配送时间: {{filters.toTimeStr(orderDetail.selDeliverTime)}}
+        </view>
+        <view class="order_time_info">开始配送时间: {{filters.toTimeStr(orderDetail.deliverTime)}}</view>
+        <view class="cancel_order" bindtap="handleTapCancelOrder" hover-class="view_hover" hover-stay-time="100">
+            取消订单
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="goods">
+        <view bindtap="handleTapGoodsDetail" class="goods_title_warp" hover-class="view_hover" hover-stay-time="100">
+            <view class="goods_title">商品详情</view>
+            <view class="iconfont icon-xia {{isShowGoodsDetail?'up':''}}"></view>
+        </view>
+        <view hidden="{{!isShowGoodsDetail}}" class="goods_group">
+            <view wx:for="{{orderDetail.validGoods}}" wx:key="goodsId" class="goods_item">
+                <view class="goods_item_warp">
+                    <view class="goods_pic_warp">
+                        <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix" catchtap="handleTapImg" data-src="{{item.goodsPicUrl}}"></image>
+                    </view>
+                    <view class="goods_name_num">
+                        <view class="goods_name">{{item.goodsName}}</view>
+                        <view class="goods_num">x{{item.num}}</view>
+                    </view>
+                    <view class="goods_price">${{filters.toFix(item.num * item.goodsPrice)}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="note">
+            <text class="note_title">备注:</text>
+            <text class="note_content">{{orderDetail.note}}</text>
+        </view>
+        <view hidden="{{!isShowGoodsDetail}}" class="fee_warp">
+            <view class="fee">服务费: $ {{orderDetail.serviceFee}}</view>
+            <view class="fee">配送费: $ {{orderDetail.deliverFee}}</view>
+        </view>
+        <view class="total_price">总计: $ {{orderDetail.totalPrice}}</view>
+        <!-- 由于订阅消息有bug 不能确保获得allowNotifyOrderComplete，先屏蔽掉 -->
+        <!-- <view class="allow_notify_text" wx:if="{{!orderDetail.allowNotifyOrderComplete}}">当前顾客并未开启订单送达通知服务，请电话联系顾客取单</view> -->
+    </view>
+    <!-- 是否接单按钮 -->
+    <view class="order_operate_warp">
+        <view class="complete_btn_warp">
+            <view bindtap="handleTapCompleteOrder" class="accept_btn" hover-class="view_hover" hover-stay-time="100">
+                已送达
+            </view>
+        </view>
+    </view>
+    <!-- 订单其他信息：下单时间，订单编号 -->
+    <view class="other_info">
+        <view class="info_warp">
+            <view class="item">订单编号: {{orderDetail.orderId}}</view>
+            <view class="item">下单时间: {{filters.toTimeStr(orderDetail.payTime)}}</view>
+            <view class="item">接单时间: {{filters.toTimeStr(orderDetail.handleTime)}}</view>
+        </view>
+    </view>
+</view>

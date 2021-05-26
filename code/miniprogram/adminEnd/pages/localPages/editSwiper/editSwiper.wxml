@@ -1,0 +1,51 @@
+<mp-form id="form">
+    <form bindsubmit="">
+        <block wx:for="{{swiperList}}" wx:key="swiperId">
+            <mp-cells title="轮播图片 {{index+1}}">
+                <mp-cell title="轮播图片" ext-class="goods_img">
+                    <view wx:if="{{!item.picUrl}}" class="add_pic_btm" bindtap="handleUploadImage" data-index="{{index}}">
+                        +
+                    </view>
+                    <view wx:else class="up_img_warp">
+                        <image src="{{item.picUrl}}" mode="widthFix" bindtap="handlePreviewImg" data-src="{{item.picUrl}}"></image>
+                        <view class="delete_pic_btm_warp" bindtap="handleRemoveImg" data-index="{{index}}">
+                            <view class="delete_pic_btm">删除</view>
+                        </view>
+                    </view>
+                </mp-cell>
+                <mp-cell prop="shopName" title="商店ID">
+                    <input value="{{item.shopId}}" bindinput="handleInputShopId" class="weui-input" data-index="{{index}}" placeholder="请输入商店ID（必填）" />
+                </mp-cell>
+                <mp-cell prop="shopName" title="商店名称">
+                    <input value="{{item.shopName}}" bindinput="handleInputShopName" class="weui-input" data-index="{{index}}" placeholder="请输入商店名称（必填）" />
+                </mp-cell>
+                <mp-cell prop="order" title="轮播顺序">
+                    <view class="weui-input" bindtap="handleChangeOrder" data-index="{{index}}">
+                        {{item.order + 1}}
+                    </view>
+                </mp-cell>
+                <mp-cell prop="goodsCate" title="商品类别">
+                    <input value="{{item.cateName}}" bindinput="handleInputGoodsCate" data-index="{{index}}" class="weui-input" placeholder="请输入商品类别（选填）" />
+                </mp-cell>
+                <mp-cell prop="goodsName" title="商品名称">
+                    <input value="{{item.goodsName}}" bindinput="handleInputGoodsName" data-index="{{index}}" class="weui-input" placeholder="请输入商品名称（选填）" />
+                </mp-cell>
+                <mp-cell prop="detail" title="简要介绍">
+                    <input value="{{item.detail}}" bindinput="handleInputDetail" data-index="{{index}}" class="weui-input" placeholder="请输入简要介绍(20字，选填)" maxlength="20" />
+                </mp-cell>
+                <view class="swiper_warp_operation">
+                    <view wx:if="{{!(swiperList.length === 1)}}" class="delete_swiper" bindtap="handleDeleteSwiper" data-index="{{index}}">
+                        删除
+                    </view>
+                    <view wx:if="{{swiperList.length !== 6}}" class="add_swiper" bindtap="handleAddSwiper" data-index="{{index}}">
+                        插入
+                    </view>
+                </view>
+            </mp-cells>
+        </block>
+    </form>
+    <view class="bottom_btm">
+        <button class="save_btm" bindtap="handleSaveSwiper">保存</button>
+    </view>
+</mp-form>
+<mp-actionSheet bindactiontap="handleChangeOrder" show="{{showActionsheet}}" actions="{{orderRange}}" title="请选择轮播顺序"></mp-actionSheet>

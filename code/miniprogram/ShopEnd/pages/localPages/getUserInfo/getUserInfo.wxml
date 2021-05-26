@@ -1,0 +1,14 @@
+<view>
+    <view>
+        <view class='header'>
+            <image mode="widthFix" src='../../../../image/logo.png'></image>
+        </view>
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+        <button class='bottom' type="primary" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">
+            授权
+        </button>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<mp-cells title="商店公告">
+  <mp-cell>
+    <textarea disabled="{{!editable}}" class="weui-textarea {{editable?'':'inactive'}}" value="{{shopAnnounce}}" placeholder="如: 营业时间，配送安排或其他宣传信息等" style="height: 8.3em" bindinput="handleShopAnnounceChange" data-field="shopAnnounce" maxlength="200" />
+    <view class="weui-textarea-counter">{{shopAnnounce.length}}/200</view>
+  </mp-cell>
+</mp-cells>
+<view class="edit_btn_warp">
+  <view class="my_save_btn" hidden="{{editable}}" bindtap="handleTapEdit">修改公告</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapDiscard">放弃修改</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapSave">保存修改</view>
+</view>

@@ -1,0 +1,7 @@
+<view class="search_row">
+  <input value="{{inputOrderId}}" placeholder="请输入要查询的Order ID" bindinput="handleInput"> </input>
+  <button bindtap="handleTapSearch">搜索</button>
+</view>
+<view class="tab-content">
+    <Order orderDetail="{{order}}"></Order>
+</view>

@@ -1,0 +1,15 @@
+<view class="page">
+    <mp-msg type="success" title="操作成功">
+        <view slot="desc">您已成功下单。如需取消订单您可以在商家接单前随时主动取消。在商家接单后您需要电话联系商家由商家取消</view>
+        <view wx:if="{{note.length!==0}}" slot="extend">
+            <view wx:for="{{note}}" wx:key="*this">{{index + 1}}. {{item}}</view>
+            <view style="color:red">
+                为提升您的使用体验以及方便商家及时向您更新订单状态，我们建议您开启相应的订阅消息通知。您可以在「我的」-->「权限管理」中进行设置
+            </view>
+        </view>
+        <view slot="handle">
+            <button bindtap="handleCheckOrder" class="weui-btn" type="primary">查看订单</button>
+            <button bindtap="handleBack" class="weui-btn" type="default">返回上一页</button>
+        </view>
+    </mp-msg>
+</view>

@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"drag": "../../../components/drag-item/drag/index"
+  },
+  "navigationBarTitleText": "排序&批量操作",
+  "backgroundColor": "#e2e2e2",
+  "backgroundTextStyle": "light"
+}

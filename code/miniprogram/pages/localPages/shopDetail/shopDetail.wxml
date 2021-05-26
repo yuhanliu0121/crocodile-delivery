@@ -1,0 +1,58 @@
+<wxs module="filters" src="../../../lib/calculate/calculate.wxs"></wxs>
+<view class="cates">
+    <view class="cates_container">
+        <!-- 左侧菜单 -->
+        <scroll-view scroll-y="{{true}}" class="left_menu">
+            <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{leftMenuList}}" wx:key="*this" bindtap="handleItemTap" data-index="{{index}}">
+                {{item}}
+            </view>
+        </scroll-view>
+        <!-- 右侧商品内容 -->
+        <scroll-view scroll-into-view="{{targetGoods}}" scroll-with-animation scroll-top="{{scrollTop}}" scroll-y="{{true}}" class="right_content" refresher-triggered="{{refreshFlag}}" refresher-enabled bindrefresherrefresh="handleRefresh">
+            <view class="goods_list">
+                <block wx:if="{{rightContent.length === 0}}">
+                    <view style="background-color: ##e4e4e4; height:90vh;width:100%; display:flex;justify-content: center;align-items: center;">
+                        <view style="color:#aeaeae">--- 该分类下暂无商品 敬请期待 ---</view>
+                        <!-- <image class="empty_image" src="https://s1.ax1x.com/2020/07/13/UJ1tDU.png" mode="widthFix"></image> -->
+                    </view>
+                </block>
+                <block wx:else>
+                    <view id="{{item.goodsId}}" class="goods_item" wx:for="{{rightContent}}" wx:key="goodsId">
+                        <view class="goods_info_warp">
+                            <view class="goods_pic_warp" bind:tap="handleTapGoodsPic" data-index="{{index}}">
+                                <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix"></image>
+                                <view wx:if="{{!item.goodsAvailable}}" class="mask">已下架</view>
+                            </view>
+                            <view class="goods_basic_info_warp">
+                                <view class="goods_name">{{item.goodsName}}</view>
+                                <!-- <view class="goods_stock">库存: {{item.goodsStock}}</view> -->
+                                <view class="goods_buy_limit">每单限购: {{item.goodsBuyLimit}}</view>
+                                <view wx:if="{{item.goodsBuyLeastLimit !== 1}}" class="goods_buy_least_limit">每单起购: {{item.goodsBuyLeastLimit}}</view>
+                                <view class="bottom_warp">
+                                    <view class="goods_price">
+                                        $ {{filters.toFix(item.goodsPrice)}}
+                                    </view>
+                                    <view wx:if="{{item.goodsAvailable}}" class="operation_warp">
+                                        <view bindtap="handleReduceGoodsNum" hidden="{{!qbuyGoods[item.goodsId]}}" data-goods-info="{{item}}" class="reduce_btn">
+                                            -
+                                        </view>
+                                        <view hidden="{{!qbuyGoods[item.goodsId]}}" class="goodsNum">
+                                            {{qbuyGoods[item.goodsId]}}
+                                        </view>
+                                        <view bindtap="handleAddGoodsNum" data-goods-info="{{item}}" class="add_btn">
+                                            +
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<!-- 当前商店的购物车窗口 -->
+<CartWindow id="popupCart" tops="70%" buyGoods="{{buyGoods}}" bindreduceGoodsNum="handleReduceGoodsNum" bindaddGoodsNum="handleAddGoodsNum" bindclearCart="handleClearCart"></CartWindow>
+<!-- 底部的统计栏 -->
+<FooterTool isCheckOutActive="{{isCheckOutActive}}" checkOutConsumption="{{checkOutConsumption}}" totalNum="{{totalNum}}" totalPrice="{{totalPrice}}" bindtabCheckOut="handleCheckOutTap" bindtabCart="handleTabCart"></FooterTool>

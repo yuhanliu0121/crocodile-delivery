@@ -1,0 +1,41 @@
+
+// ================= 固定小数位数位2位 ==================
+var toFix = function toFix(value) {
+  return value.toFixed(2); // 此处2为保留两位小数，保留几位小数，这里写几
+}
+
+// ================= 转换时间戳显示格式 ===============
+
+var formatNumber = function (n) {
+  n = n.toString();
+  return n[1] ? n : "0" + n;
+};
+
+// 将时间戳转换成日期
+var toDateStr = function (timestamp) {
+  var date = getDate(timestamp);
+  var year = date.getFullYear();
+  return year + '-' + toTimeStr(timestamp);
+};
+
+// 将时间戳转换成具体时间
+var toTimeStr = function(timestamp){
+  var date = getDate(timestamp);
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  return [month,day].map(formatNumber).join("-") + "    " +  [hour,minute].map(formatNumber).join(":")
+}
+
+// ================= 检查元素是否在数组中 =====================
+var isContain = function(arr, element){
+  return !(arr.indexOf(element+'') === -1)
+}
+
+module.exports = {
+  toFix: toFix,
+  toDateStr: toDateStr,
+  toTimeStr:toTimeStr,
+  isContain:isContain,
+};

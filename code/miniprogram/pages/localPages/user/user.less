@@ -1,0 +1,53 @@
+Page {
+  background-color: #edece8;
+}
+
+.user_info_warp {
+  height: 45vh;
+  overflow: hidden;
+  position: relative;
+  .user_bg {
+    filter: blur(10rpx);
+    height: 50vh;
+  }
+  .user_info {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    text-align: center;
+
+    .user_icon {
+      width: 150rpx;
+      height: 150rpx;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .user_name {
+      color: white;
+      margin-top: 40rpx;
+    }
+  }
+}
+
+
+.cells_class {
+  margin-top: 0;
+  .btn_warp {
+    padding: 0;
+    button::after {
+      border: none;
+    }
+    button {
+      border-radius: 0;
+      line-height: 1;
+      background-color: transparent;
+      text-align: start;
+      font-size: 17px;
+      padding: 20px 16px;
+    }
+    .button-hover {
+      background-color: transparent;
+    }
+  }
+}

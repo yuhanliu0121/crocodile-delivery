@@ -1,0 +1,8 @@
+<!-- 营业时间选择checkbox↓ -->
+<mp-cells title="选择营业时间：">
+  <mp-checkbox-group prop="checkbox" multi="{{true}}" bindchange="checkboxChange">
+    <!-- 周一到周日↓ -->
+    <mp-checkbox wx:for="{{checkboxItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
+  </mp-checkbox-group>
+</mp-cells>
+<!-- 营业时间选择checkbo↑ -->

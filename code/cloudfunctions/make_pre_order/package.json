@@ -1,0 +1,15 @@
+{
+  "name": "make_pre_order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "number-precision": "^1.5.0",
+    "wx-server-sdk": "^2.2.0"
+  }
+}

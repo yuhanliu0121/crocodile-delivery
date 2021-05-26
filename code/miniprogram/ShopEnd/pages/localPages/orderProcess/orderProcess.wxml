@@ -1,0 +1,49 @@
+<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+    <block wx:for="{{tabs}}" wx:key="title">
+        <view class="tab-content" slot="tab-content-{{index}}">
+            <!-- 新订单开始 -->
+            <block wx:if="{{index === 0}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshNewOrderFlag}}" bindrefresherrefresh="handleRefreshNewOrder">
+                    <block wx:if="{{newOrder.length !== 0}}">
+                        <NewOrder wx:for="{{newOrder}}" wx:key="orderId" orderDetail="{{item}}" bindtapAcceptOrder="handleAcceptOrder" bindtapCancelOrder="handleCancelOrder" data-openid="{{item._openid}}" data-orderid="{{item.orderId}}"></NewOrder>
+                        <view class="margin"></view>
+                    </block>
+                    <view wx:if="{{newOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 没有新订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 新订单结束 -->
+            <!-- 处理中订单开始 -->
+            <block wx:if="{{index === 1}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshHandlingOrderFlag}}" bindrefresherrefresh="handleRefreshHandlingOrder">
+                    <block wx:if="{{handleOrder.length !== 0}}">
+                        <HandleOrder wx:for="{{handleOrder}}" wx:key="orderId" orderDetail="{{item}}" bindtapCancelOrder="handleCancelOrder" bindtapDeliverOrder="handleDeliverOrder" data-openid="{{item._openid}}" data-orderid="{{item.orderId}}"></HandleOrder>
+                        <view class="margin"></view>
+                    </block>
+                    <view wx:if="{{handleOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 没有处理中的订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 处理中订单结束 -->
+            <!-- 配送中订单开始 -->
+            <block wx:if="{{index === 2}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshDeliverOrderFlag}}" bindrefresherrefresh="handleRefreshDeliverOrder">
+                    <block wx:if="{{deliverOrder.length !== 0}}">
+                        <DeliverOrder wx:for="{{deliverOrder}}" wx:key="orderId" orderDetail="{{item}}" bindtapCancelOrder="handleCancelOrder" bindtapCompleteOrder="handleCompleteOrder" data-openid="{{item._openid}}" data-orderid="{{item.orderId}}" data-notify="{{item.allowNotifyOrderComplete}}"></DeliverOrder>
+                        <view class="margin"></view>
+                    </block>
+                    <view wx:if="{{deliverOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 没有配送中的订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 配送中订单结束 -->
+        </view>
+    </block>
+</mp-tabs>
+<!-- <myTabbar current="{{0}}" showDot="{{showDot}}"></myTabbar> -->
+<myTabbar current="{{0}}" ></myTabbar>
+<!-- 取消订单理由输入框 -->
+<InputDialog show="{{showCancelReasonDialog}}" type="text" binddialogEvent="handleCancelReasonResult" title="请输入取消订单理由" placeholder="请输入取消订单理由"></InputDialog>

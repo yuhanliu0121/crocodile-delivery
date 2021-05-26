@@ -1,0 +1,35 @@
+<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+    <block wx:for="{{tabs}}" wx:key="title" wx:for-item="item1">
+        <view class="tab-content" slot="tab-content-{{index}}">
+            <!-- 未完成订单开始 -->
+            <block wx:if="{{index === 0}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshUncompleteOrderFlag}}" bindrefresherrefresh="handleRefreshUncompleteOrder">
+                    <block wx:if="{{uncompleteOrder.length !== 0}}">
+                        <Order wx:for="{{uncompleteOrder}}" wx:key="orderId" orderDetail="{{item}}" bindtapCancelOrder="handleCancelOrder" data-orderid="{{item.orderId}}"></Order>
+                    </block>
+                    <view wx:if="{{uncompleteOrder.length !== 0}}" class="padding"></view>
+                    <view wx:if="{{uncompleteOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 没有未完成的订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 未完成订单结束 -->
+            <!-- 已完成订单开始 -->
+            <block wx:if="{{index === 1}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshCompleteOrderFlag}}" bindrefresherrefresh="handleRefreshCompleteOrder" bindscrolltolower="handleGetMoreCompleteOrder">
+                    <block wx:if="{{completeOrder.length !== 0}}">
+                        <Order wx:for="{{completeOrder}}" wx:key="orderId" orderDetail="{{item}}"></Order>
+                    </block>
+                    <view wx:if="{{completeOrder.length !== 0}}" class="padding"></view>
+                    <view wx:if="{{completeOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 还没有已完成的订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 已完成订单结束 -->
+        </view>
+    </block>
+</mp-tabs>
+
+<!-- 取消订单理由输入框 -->
+<InputDialog show="{{showCancelReasonDialog}}" type="text" binddialogEvent="handleCancelReasonResult" title="请输入取消订单理由" placeholder="请输入取消订单理由"></InputDialog>

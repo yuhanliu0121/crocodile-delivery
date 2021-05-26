@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "mp-dialog": "../../../components/dialog/dialog",
+    "mp-form-page": "../../../components/form-page/form-page",
+    "mp-form": "../../../components/form/form",
+    "mp-toptips": "../../../components/toptips/toptips",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
+    "mp-checkbox": "../../../components/checkbox/checkbox",
+    "mp-checkbox-group": "../../../components/checkbox-group/checkbox-group",
+    "mp-icon": "../../../components/icon/icon"
+    
+  }
+}

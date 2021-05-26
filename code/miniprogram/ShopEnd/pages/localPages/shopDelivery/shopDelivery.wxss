@@ -1,0 +1,27 @@
+
+.deliver_info_wrap{
+  background-color: #FFF;
+  border-top: 1rpx solid #CCC;
+}
+
+.deliver_info_wrap .deliver_info_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx ;
+  border-bottom: 6rpx solid #ccc;
+}
+
+.deliver_info_wrap .deliver_info_item .minprice{
+  margin-right: 100rpx;
+}
+.arrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 20rpx;
+  transform: rotate(45deg);
+  margin-top: 10rpx;
+}

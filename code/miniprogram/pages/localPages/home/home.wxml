@@ -1,0 +1,42 @@
+<!-- 搜索框开始 -->
+<!-- <SearchInput></SearchInput> -->
+<!-- 搜索框结束 -->
+<!-- 轮播图 开始 -->
+<view class="index_swiper">
+	<swiper autoplay indicator-dots circular interval="{{2000}}">
+			<swiper-item wx:for="{{swiperList}}" wx:key="_id" bindtap="handleTapSwiper" data-index="{{index}}">
+				<view wx:if="{{item.detail}}" class="detail">{{item.detail}}</view>
+				<image mode="widthFix" src="{{item.picUrl}}"></image>
+			</swiper-item>
+	</swiper>
+</view>
+<!-- 轮播图 结束 -->
+<!-- 超市分类开始 -->
+<view class="shop_cate">
+	<navigator class="grocery_delivery" url="../shopList/shopList?shopCate=0">
+		<view class="iconfont icon-grocery"></view>
+		<view class="grocery_delivery_text">商超外送</view>
+	</navigator>
+	<navigator class="restruand_delivery" url="../shopList/shopList?shopCate=1">
+		<view class="iconfont icon-delivery"></view>
+		<view class="restruand_delivery_text">餐厅外送</view>
+	</navigator>
+</view>
+<!-- 超市分类结束 -->
+<!-- 推荐店铺开始 -->
+<view class="recommend_shop_warp">
+	<view class="shop_title">
+		<text class="iconfont icon-shop"></text>推荐店铺
+	</view>
+	<block wx:for="{{selfRunShopList}}" wx:key="shopId">
+	<navigator url="/pages/localPages/ugShopDetail/ugShopDetail?shopId={{item.shopId}}">
+		<ShopCard shopInfo="{{item}}"></ShopCard>
+	</navigator>
+	</block>
+	<block wx:for="{{recommendShopList}}" wx:key="shopId">
+		<navigator url="/pages/localPages/shopDetail/shopDetail?shopId={{item.shopId}}">
+			<ShopCard shopInfo="{{item}}"></ShopCard>
+		</navigator>
+	</block>
+</view>
+<!-- 推荐店铺结束 -->

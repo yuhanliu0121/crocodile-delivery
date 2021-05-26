@@ -1,0 +1,58 @@
+<!-- 新的样式 -->
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <form bindsubmit="handleSaveGoods">
+        <mp-cells>
+            <mp-cell prop="goodsPicUrl" title="商品图片" ext-class="goods_img">
+                <view wx:if="{{!img}}" class="add_pic_btm" bind:tap="handleUploadImage">+</view>
+                <view wx:else class="up_img_warp">
+                    <image src="{{img}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                    <view class="delete_pic_btm_warp" bindtap="handleRemoveImg">
+                        <view class="delete_pic_btm">删除</view>
+                    </view>
+                </view>
+            </mp-cell>
+            <mp-cell prop="goodsCate" title="商品类别">
+                <picker data-field="cateId" mode="selector" value="{{currentIndex}}" range="{{catePickRng}}"
+                    range-key="{{'cateName'}}" bindchange="handleChangeGoodsCate">
+                    <view class="weui-input">{{catePickRng[currentIndex].cateName}}</view>
+                </picker>
+            </mp-cell>
+            <mp-cell prop="goodsName" title="商品名称">
+                <input name="goodsName" class="weui-input" data-field="goodsName" placeholder="请输入商品名称"
+                    value="{{goodsInfo.goodsName}}" />
+            </mp-cell>
+            <mp-cell prop="goodsStock" title="库存数量">
+                <input name="goodsStock" type="number" data-field="goodsStock" class="weui-input" placeholder="请输入库存数量"
+                    value="{{goodsInfo.goodsStock}}" />
+            </mp-cell>
+            <mp-cell prop="goodsPrice" title="商品价格">
+                <view style="display:flex; align-items: center;">
+                    $
+                    <input name="goodsPrice" type="digit" data-field="goodsPrice" placeholder="请输入商品价格"
+                        value="{{goodsInfo.goodsPrice}}" />
+                </view>
+            </mp-cell>
+            <mp-cell prop="goodsBuyLimit" title="最多购买">
+                <input name="goodsBuyLimit" type="number" data-field="goodsBuyLimit" class="weui-input"
+                    placeholder="请输入每单限购量" value="{{goodsInfo.goodsBuyLimit}}" />
+            </mp-cell>
+            <mp-cell prop="goodsBuyLeastLimit" title="最少起购">
+                <input name="goodsBuyLeastLimit" type="number" data-field="goodsBuyLeastLimit" class="weui-input"
+                    placeholder="请输入最少起购量" value="{{goodsInfo.goodsBuyLeastLimit}}" />
+            </mp-cell>
+            <mp-cells title="商品详情">
+                <mp-cell prop="goodsDetail">
+                    <textarea name="goodsDetail" bindinput="handleGoodsDetailChange" class="weui-textarea"
+                        value="{{goodsInfo.goodsDetail}}" placeholder="请输入商品详情" style="height: 5.5em"
+                        data-field="goodsDetail" maxlength="200" />
+                    <view class="weui-textarea-counter">{{goodsDetail.length||goodsInfo.goodsDetail.length}}/200</view>
+                </mp-cell>
+            </mp-cells>
+        </mp-cells>
+        <view class="bottom_btm">
+            <view class="delete_btm" bindtap="handleDeleteGoods">删除商品</view>
+            <!-- <button class="save_btm" bindtap="handleSaveGoods" >保存商品</button> -->
+            <button form-type="submit" class="save_btm">保存商品</button>
+        </view>
+    </form>
+</mp-form>

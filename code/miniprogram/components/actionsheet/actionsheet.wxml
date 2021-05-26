@@ -1,0 +1,8 @@
+<!-- 在根组件处catch:touchmove="preventTouchMove"可以防止滚动穿透 -->
+<view class="actionSheet" wx:if="{{isShowSheet}}" catch:touchmove="preventTouchMove">
+  <view class="master" bindtap="__closeMaster" animation="{{masterAnimate}}" catchtouchmove="preventTouchMove"></view>
+  <view class="content" style="height: {{tops}};" animation="{{contentAnimate}}">
+    <view class="actionsheet_title">{{title}}</view>
+    <slot></slot>
+  </view>
+</view>

@@ -1,0 +1,194 @@
+<!-- "logoUrl"
+    "shopId"
+    "shopCate"
+    "shopName"
+    "shopPhoneNumber"
+    "shopAddress"
+    "city"
+    "state"
+    "zipcode"
+
+    "openDay"
+    "openTime"
+    "closeTime"
+    "minConsumption"
+    "shopAnnounce"
+
+
+    "shopAssistant"
+    "geoPoint"
+    "startDate"
+
+    "shopStatus"
+    "isExist"
+    "shopTimezoneOffset" -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page_container">
+    <view class="page_title_warp">
+        <view class="page_title">商店初始设置</view>
+        <view class="page_subtitle">
+            恭喜，您的商店已经成功注册！「小鳄鱼跑腿」全体工作人员在此欢迎您的入驻！请您在此页面对商店进行一些初始设置，完成后方可激活您的商店
+        </view>
+    </view>
+    <view class="page_content" xmlns:wx="http://www.w3.org/1999/xhtml">
+        <view class="page__bd">
+            <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+                <form bindsubmit="handleSaveForm">
+                    <!-- 基本信息模块开始 -->
+                    <mp-cells title="基本信息">
+                        <mp-cell prop="logoUrl" title="">
+                            <view class="shop-info-item">
+                                <text class="item_title">商店logo</text>
+                                <view class="info_input">
+                                    <view wx:if="{{!img}}" class="add_pic_btm" bind:tap="handleUploadImage">
+                                        +
+                                    </view>
+                                    <view wx:else class="up_img_warp">
+                                        <image src="{{img}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                                        <view class="delete_pic_btm_warp" bindtap="handleRemoveImg">
+                                            <view class="delete_pic_btm">删除</view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </mp-cell>
+                        <mp-cell prop="shopId" title="商店编号">
+                            <input name="shopId" class="weui-input" placeholder="{{shopId}}" disabled="{{true}}" />
+                        </mp-cell>
+                        <mp-cell prop="shopName" title="商店名称">
+                            <input name="shopName" type="text" class="weui-input" placeholder="请输入商店名称" maxlength="19" />
+                        </mp-cell>
+                        <mp-cell prop="shopCate" title="营业类型" ext-class="">
+                            <picker name="shopCate" value="{{shopCate}}" mode="selector" range="{{shopCateRng}}" range-key="{{'cateName'}}" bindchange="handleChangeShopCate">
+                                <view class="weui-input" style="color:#808080">
+                                    {{shopCateRng[shopCate].cateName || "请选择商店类型"}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <mp-cell prop="shopPhoneNumber" title="联系电话">
+                            <input name="shopPhoneNumber" type="number" class="weui-input" placeholder="请输入联系电话" />
+                        </mp-cell>
+                        <mp-cell prop="shopAddress" title="Address">
+                            <input name="shopAddress" type="text" class="weui-input" placeholder="请输入Address" />
+                        </mp-cell>
+                        <mp-cell prop="city" title="City">
+                            <input name="city" type="text" class="weui-input" placeholder="请输入City" />
+                        </mp-cell>
+                        <mp-cell prop="state" title="State">
+                            <picker mode="selector" range="{{stateRng}}" range-key="{{'stateName'}}" bindchange="handleChangeState">
+                                <view class="weui-input" style="color:#808080">
+                                    {{state || "请选择State"}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <mp-cell prop="zipcode" title="Postal">
+                            <input name="zipcode" type="number" class="weui-input" placeholder="请输入Postal" />
+                        </mp-cell>
+                        <view class="weui-cells__title" style="color:red; padding-top: 5rpx">
+                            以上内容一经提交需联系客服才能修改 请确认无误
+                        </view>
+                    </mp-cells>
+                    <!-- 基本信息模块结束 -->
+                    <!-- 营业信息设置开始 -->
+                    <mp-cells title="营业设置">
+                        <mp-cell prop="openDay" title="营业日">
+                            <input class="weui-input" disabled="{{true}}" placeholder="{{selOpenDayText}}" bind:tap="handleChangeOpenDay" />
+                        </mp-cell>
+                        <mp-cell prop="openTime" title="开门时间" ext-class="">
+                            <picker mode="time" start="05:00" bindchange="handleChangeOpenTime">
+                                <view class="weui-input" style="color:#808080">
+                                    {{openTime || "请选择开门时间"}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <mp-cell prop="closeTime" title="关门时间" ext-class="">
+                            <picker mode="time" end="23:59" bindchange="handleChangeCloseTime">
+                                <view class="weui-input" style="color:#808080">
+                                    {{closeTime || "请选择关门时间"}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                    </mp-cells>
+                    <mp-cells title="配送设置">
+                        <mp-cell prop="minConsumption" title="起送消费">
+                            <view class="input" style="display:flex; align-items: center;">
+                                $
+                                <input name="minConsumption" type="digit" placeholder="请输入起送消费" />
+                            </view>
+                        </mp-cell>
+                        <mp-cell wx:for="{{deliverTimeList}}" wx:key="*this" prop="deliverTime" title="配送时间 {{index + 1}}" ext-class="">
+                            <picker mode="time" bindchange="handleChangeDeliverTime" start="00:01" end="23:59" data-index="{{index}}">
+                                <view class="weui-input" style="color:#808080">
+                                    {{item||"请选择配送时间"}}
+                                </view>
+                            </picker>
+                            <mp-icon wx:if="{{index === 0}}" slot="footer" icon="add2" color="#32acad" size="{{25}}" bindtap="handleTapAddDeliverTIme"></mp-icon>
+                            <mp-icon wx:else slot="footer" icon="close2" color="#32acad" size="{{25}}" bindtap="handleTapDeleteDeliverTIme" data-index="{{index}}"></mp-icon>
+                        </mp-cell>
+                        <mp-cell prop="cutOrderTime" title="截单时间" footer="分钟">
+                            <picker mode="selector" bindchange="handleChangeCutOrderTime" range="{{cutOrderTimeRng}}">
+                                <view class="weui-input" style="color:#808080">
+                                    {{cutOrderTime === -1?"请选择截单时间":cutOrderTime}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+                            说明：截单时间表示在每个配送时间前接受的最晚下单时间。假设您设置了2个配送时间如：12:00, 18:00, 并且您设置截单时间为30分钟，则在11:30后下单的顾客将无法选择12:00作为收货时间而只能选择当日18:00。同理17:30后下单的顾客将无法选择当日18:00作为收货时间而只能选择次日12:00或18:00
+                        </view>
+                    </mp-cells>
+                    <mp-cells title="服务费与配送费">
+                        <mp-cell prop="serviceFeePercent" title="服务费比例" footer="%">
+                            <picker mode="selector" bindchange="handleChangeServiceFeePercent" range="{{serviceFeePercentRng}}">
+                                <view class="weui-input" style="color:#808080; text-align:center">
+                                    {{serviceFeePercent === -1?"请选择服务费比例":serviceFeePercent}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+                            服务费 = 顾客消费 x 服务费比例
+                        </view>
+                        <mp-cell prop="deliverFeePercent" title="配送费比例" footer="%">
+                            <picker mode="selector" bindchange="handleChangeDeliverFeePercent" range="{{deliverFeePercentRng}}">
+                                <view class="weui-input" style="color:#808080;  text-align:center">
+                                    {{deliverFeePercent === -1?"请选择配送费比例":deliverFeePercent}}
+                                </view>
+                            </picker>
+                        </mp-cell>
+                        <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+                            配送费 = 顾客消费 x 配送费比例
+                        </view>
+                    </mp-cells>
+                    <mp-cells title="商店公告">
+                        <mp-cell>
+                            <!-- value设置成value="{{openSelectOpenDayDialog?'':shopAnnounce}}"以及placeholder是为了防止打开营业日选择框时公告的内容会穿透 -->
+                            <textarea name="shopAnnounce" class="weui-textarea" value="{{openSelectOpenDayDialog?'':shopAnnounce}}" placeholder="{{openSelectOpenDayDialog?'':'如: 营业时间，配送安排或其他宣传信息等 '}}" style="height: 3.3em" bindinput="handleShopAnnounceChange" maxlength="200" />
+                            <view class="weui-textarea-counter">{{shopAnnounce.length}}/200</view>
+                        </mp-cell>
+                    </mp-cells>
+                    <!-- 营业信息设置结束 -->
+                    <!-- 其他设置开始 -->
+                    <mp-cells title="其他设置">
+                        <mp-cell title="添加店员">
+                            <input disabled="{{true}}" class="weui-input" placeholder="完成初始设置后在设置页面添加" />
+                        </mp-cell>
+                    </mp-cells>
+                    <!-- 其他设置结束 -->
+                    <view style="padding:100rpx 0">
+                        <button class="weui-btn" type="primary" form-type="submit">确定</button>
+                    </view>
+                </form>
+            </mp-form>
+        </view>
+    </view>
+</view>
+<!-- 选择营业日对话框 -->
+<!-- FIXME 滚动穿透 -->
+<mp-dialog title="请选择营业日" mask="true" show="{{openSelectOpenDayDialog}}" bindbuttontap="hadnleTapSelectOpenDayButton" buttons="{{buttons}}">
+    <checkbox-group bindchange="handleOpenDayChange">
+        <label class="weui-cell weui-check__label" wx:for="{{selOpenDayItems}}" wx:key="value">
+            <view class="item_warp">
+                <checkbox checked="{{false}}" value="{{item.value}}">{{item.text}}</checkbox>
+            </view>
+        </label>
+    </checkbox-group>
+</mp-dialog>

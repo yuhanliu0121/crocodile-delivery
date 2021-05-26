@@ -1,0 +1,14 @@
+<view class="search_row">
+    <input value="{{inputShopId}}" placeholder="请输入要删除的shop ID" bindinput="handleInput"></input>
+    <button bindtap="handleTapSearch">搜索</button>
+</view>
+<view class="shopInfo_warp">
+    <view wx:if="{{!shopInfo.shopId}}">没有相关商店信息</view>
+    <block wx:else>
+        <view class="shopInfo_item" wx:for="{{shopInfo}}" wx:for-index="key" wx:for-item="value">
+            {{key}}:{{value}}
+        </view>
+        <button wx:if="{{shopInfo.isExist}}" class="del_btn" bindtap="handleDelShop">删除商店</button>
+        <button wx:else class="del_btn" disabled="{{true}}">商店已被删除</button>
+    </block>
+</view>

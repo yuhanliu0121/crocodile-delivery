@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-tabs":"../../../components/tabs/index",
+    "Order":"../../../components/Order/Order"
+  }
+}

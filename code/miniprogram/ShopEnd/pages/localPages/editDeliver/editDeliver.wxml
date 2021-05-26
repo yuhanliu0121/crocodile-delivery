@@ -1,0 +1,36 @@
+<mp-form>
+    <form bindsubmit="handleTapSave">
+        <mp-cells title="配送设置">
+            <mp-cell prop="minConsumption" title="起送消费">
+                <view class="input" style="display:flex; align-items: center;">
+                    $
+                    <input name="minConsumption" value="{{minConsumption}}" disabled="{{!editable}}" class="{{editable?'active':'inactive'}}" type="digit" data-field="minConsumption" placeholder="请输入起送消费" />
+                </view>
+            </mp-cell>
+            <mp-cell wx:for="{{deliverTimeList}}" wx:key="*this" prop="deliverTime" title="配送时间 {{index + 1}}" ext-class="">
+                <picker disabled="{{!editable}}" data-field="deliverTime" mode="time" start="00:01" end="23:59" bindchange="handleChangeDeliverTime" data-index="{{index}}">
+                    <view class="weui-input {{editable?'':'inactive'}}">{{item||"请选择配送时间"}}</view>
+                </picker>
+                <block wx:if="{{editable}}">
+                    <mp-icon wx:if="{{index === 0}}" slot="footer" icon="add2" color="#32acad" size="{{25}}" bindtap="handleTapAddDeliverTIme"></mp-icon>
+                    <mp-icon wx:else slot="footer" icon="close2" color="#32acad" size="{{25}}" bindtap="handleTapDeleteDeliverTIme" data-index="{{index}}"></mp-icon>
+                </block>
+            </mp-cell>
+            <mp-cell prop="cutOrderTime" title="截单时间" footer="分钟">
+                <picker disabled="{{!editable}}" mode="selector" bindchange="handleChangeCutOrderTime" range="{{cutOrderTimeRng}}">
+                    <view class="weui-input" style="color:#808080">
+                        {{cutOrderTime === -1?"请选择截单时间":cutOrderTime}}
+                    </view>
+                </picker>
+            </mp-cell>
+            <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+                说明：截单时间表示在每个配送时间前接受的最晚下单时间。假设您设置了2个配送时间如：12:00, 18:00, 并且您设置截单时间为30分钟，则在11:30后下单的顾客将无法选择12:00作为收货时间而只能选择当日18:00。同理17:30后下单的顾客将无法选择当日18:00作为收货时间而只能选择次日12:00或18:00
+            </view>
+        </mp-cells>
+        <view class="edit_btn_warp">
+            <view class="my_save_btn" hidden="{{editable}}" bindtap="handleTapEdit">修改配送设置</view>
+            <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapDiscard">放弃修改</view>
+            <button form-type="submit" class="my_save_btn" hidden="{{!editable}}">保存修改</button>
+        </view>
+    </form>
+</mp-form>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-form": "../../../components/form/form",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell"
+  },
+  "navigationBarTitleText": "添加商品",
+  "backgroundColor": "#e2e2e2",
+  "backgroundTextStyle": "light"
+}

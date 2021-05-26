@@ -1,0 +1,137 @@
+.cates {
+  background-color: white;
+  height: 100%;
+  .cates_container {
+    height: 100vh;
+    display: flex;
+    .left_menu {
+      /* 子项 高度 100% flex */
+      flex: 2;
+      background-color: #f7f6f7;
+      box-shadow: 5rpx 0rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+      .menu_item {
+        height: 80rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25rpx;
+        white-space:nowrap;
+      }
+      .active {
+        color: var(--themeColor);
+        border-left: 5rpx solid currentColor;
+      }
+    }
+    .right_content {
+      /* 子项 高度 100% flex */
+      flex: 5;
+      .goods_list {
+        .margin {
+          // 用来将商品内容垫高以免加号按钮挡住最后的商品
+          width: 100%;
+          height: 200rpx;
+        }
+        .goods_item {
+          padding: 0 30rpx;
+          .goods_info_warp {
+            position: relative;
+            padding: 15rpx 0;
+            display: flex;
+            border-bottom: 3rpx solid #f6f6f6;
+            .goods_pic_warp {
+              .goods_pic {
+                width: 150rpx;
+                height: 150rpx;
+                flex: none;
+              }
+            }
+
+            .goods_basic_info_warp {
+              width: 65%;
+              margin-left: 15rpx;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              .goods_name {
+                font-size: 25rpx;
+                font-weight: bold;
+                // 为了保证单行省略正常渲染，该元素的width必须指定
+                width: 350rpx;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+              .goods_stock {
+                font-size: 20rpx;
+                color: #666;
+              }
+              .goods_buy_limit {
+                font-size: 20rpx;
+                color: #666;
+              }
+
+              .bottom_warp {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .goods_price {
+                  flex: 1.2;
+                  font-size: 30rpx;
+                  color: var(--themeColor);
+                }
+                .operation_warp {
+                  flex: 1;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  .reduce_btn {
+                    width: 45rpx;
+                    height: 45rpx;
+
+                    font-size: 40rpx;
+                    color: white;
+
+                    text-align: center; //水平居中
+                    line-height: 45rpx; //跟高度一样
+
+                    background-color: var(--themeColor);
+                    border-radius: 100%;
+                    box-shadow: 5rpx 5rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+                  }
+                  .goodsNum {
+                    // 若此方案不兼容某些机型，尝试transform
+                    margin-left: auto;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .add_btn {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 120rpx;
+
+    color: white;
+    font-size: 90rpx;
+    font-weight: bold;
+    background-color: var(--themeColor);
+    box-shadow: 10rpx 10rpx 13rpx 6rpx rgba(0, 0, 0, 0.164);
+    position: fixed;
+    right: 7%;
+    bottom: 8%;
+    .add_sign {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

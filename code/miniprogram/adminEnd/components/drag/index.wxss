@@ -1,0 +1,61 @@
+.item-wrap {
+  position: relative;
+}
+.item-wrap .item {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.item-wrap .item.itemTransition {
+  transition: transform 0.3s !important;
+}
+.item-wrap .item.zIndex {
+  z-index: 2;
+}
+.item-wrap .item.cur {
+  transition: initial;
+}
+.item-wrap .item.fixed {
+  z-index: 0 !important;
+}
+
+.info {
+  position: relative;
+  padding-top: 100%;
+  background: #ffffff;
+}
+.info__item {
+  position: absolute;
+  border: 1rpx solid #ebedf0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.info__item .image {
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  display: flex;
+  /* padding: 20rpx; */
+  width: 100%;
+  border-bottom: 1rpx solid #ebedf0;
+  background: #ffffff;
+}
+.cell .cell__bd {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* 用view来当button用，此处自定义点击view后产生的阴影反馈效果
+此段代码必须放在css最后 */
+.view_hover {
+  background: #dedede;
+}

@@ -1,0 +1,4 @@
+{
+  "usingComponents": { "ShopCard": "../../../components/ShopCard/ShopCard" },
+  "navigationBarTitleText": "商家列表"
+}

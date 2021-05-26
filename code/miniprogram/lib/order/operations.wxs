@@ -1,0 +1,31 @@
+// 根据status的数字返回其所代表的订单状态的文字
+var getStatusText = function (status) {
+  var statusText = "";
+  switch (status) {
+    case -1:
+      statusText = "已取消";
+      break;
+    case 0:
+      statusText = "等待接单";
+      break;
+
+    case 1:
+      statusText = "已接单";
+      break;
+    case 2:
+      statusText = "配送中";
+      break;
+    case 3:
+      statusText = "已送达";
+      break;
+
+    default:
+      statusText = "错误";
+      break;
+  }
+  return statusText;
+};
+
+module.exports = {
+  getStatusText: getStatusText,
+};

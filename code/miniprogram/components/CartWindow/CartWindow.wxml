@@ -1,0 +1,36 @@
+<wxs module="filters" src="../../lib/calculate/calculate.wxs"></wxs>
+<view class="actionSheet" wx:if="{{isShowSheet}}">
+  <view class="master" bindtap="closeCart" animation="{{masterAnimate}}"></view>
+  <view class="content" style="height: {{tops}};" animation="{{contentAnimate}}">
+    <view class="cart_title_warp">
+      <view class="cart_title_text">已购商品</view>
+      <view class="iconfont icon-trash_can" hover-class="view_hover" hover-stay-time="100" bindtap="handleClearCart"></view>
+    </view>
+    <scroll-view class="cart_window_content" scroll-y="{{true}}" style="height:60vh">
+      <view class="goods_item" wx:for="{{buyGoods}}" wx:key="goodsId">
+        <view class="goods_info_warp">
+          <view class="goods_pic_warp">
+            <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix"></image>
+          </view>
+          <view class="goods_basic_info_warp">
+            <view class="goods_name">{{item.goodsName}}</view>
+            <view class="bottom_warp">
+              <view class="goods_price">$ {{filters.toFix(item.goodsPrice * item.num)}}</view>
+              <view class="operation_warp">
+                <view bindtap="handleReduceGoodsNum" data-item="{{item}}"  class="reduce_btn">
+                  -
+                </view>
+                <view class="goodsNum">{{item.num}}</view>
+                <view bindtap="handleAddGoodsNum" data-item="{{item}}" class="add_btn">
+                  +
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 由于footerTool占据了空间因此做一元素把原本的地方空出来 footerTool高度为90rpx -->
+      <view style="height:120rpx"></view>
+    </scroll-view>
+  </view>
+</view>

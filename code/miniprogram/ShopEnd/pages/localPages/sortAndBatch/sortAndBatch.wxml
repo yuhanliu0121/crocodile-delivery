@@ -1,0 +1,20 @@
+<drag id="drag" 
+  bind:click="itemClick" 
+  bind:change="change" 
+  bind:sortend="sortEnd" 
+  bind:scroll="scroll" 
+  bind:check="check"
+  bind:uncheck="uncheck"
+  bind:delete = "deleteItem"
+  list-data="{{listData}}" 
+  columns="{{size}}" 
+  scroll-top="{{scrollTop}}" 
+  top-size="110" 
+  bottom-size="{{isIphoneX ? 380 : 300 }}">
+</drag>
+<view class='btns' >
+	<view class='deleteGoods' bindtap="deleteGoods" wx:if="{{!sortAble & !deleteAble}}">批量删除</view>
+	<view class='sortGoods' bindtap="sortGoods" wx:if="{{!sortAble & !deleteAble}}">商品排序</view>
+  <view class='sortGoods' bindtap="saveSort" wx:if="{{sortAble}}">保存排序</view>
+  <view class='sortGoods' bindtap="saveDelete" wx:if="{{deleteAble}}">完成删除</view>
+</view>

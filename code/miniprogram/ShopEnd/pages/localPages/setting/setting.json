@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
+    "myTabbar": "../../../components/myTabbar/myTabbar"
+
+  },
+  "navigationBarTitleText": "设置"
+}

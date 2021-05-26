@@ -1,0 +1,28 @@
+<mp-cells title="服务费与配送费">
+    <mp-cell prop="serviceFeePercent" title="服务费比例" footer="%">
+        <picker disabled="{{!editable}}" mode="selector" bindchange="handleChangeServiceFeePercent" range="{{serviceFeePercentRng}}">
+            <view class="weui-input" style="color:#808080; text-align:center">
+                {{serviceFeePercent === -1?"请选择服务费比例":serviceFeePercent}}
+            </view>
+        </picker>
+    </mp-cell>
+    <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+        服务费 = 顾客消费 x 服务费比例
+    </view>
+    <mp-cell prop="deliverFeePercent" title="配送费比例" footer="%">
+        <picker disabled="{{!editable}}" mode="selector" bindchange="handleChangeDeliverFeePercent" range="{{deliverFeePercentRng}}">
+            <view class="weui-input" style="color:#808080;  text-align:center">
+                {{deliverFeePercent === -1?"请选择配送费比例":deliverFeePercent}}
+            </view>
+        </picker>
+    </mp-cell>
+    <view class="weui-cells__title" style="color:#9b9b9b; padding-top: 0; margin-top:0">
+        配送费 = 顾客消费 x 配送费比例
+    </view>
+</mp-cells>
+
+<view class="edit_btn_warp">
+  <view class="my_save_btn" hidden="{{editable}}" bindtap="handleTapEdit">点击修改</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapDiscard">放弃修改</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapSave">保存修改</view>
+</view>

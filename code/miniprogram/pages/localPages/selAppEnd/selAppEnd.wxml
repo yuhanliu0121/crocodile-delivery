@@ -1,0 +1,28 @@
+<view class="page_container">
+  <image class="background_img" src="cloud://env-miamielm-5gliunnq19c0a342.656e-env-miamielm-5gliunnq19c0a342-1304795284/system/login.jpg" bindload="handleLoadBgpComplete" />
+  <!-- 客户端登录按钮 -->
+  <view hidden="{{!showPage}}" class="login">
+    <view class="login_btn_warp">
+      <view class="customer_btn_warp">
+        <view class="btn_warp">
+          <button class="login_btn_customer" type="primary" bindtap="handleLogin" data-type="customer">
+              点击进入顾客端
+          </button>
+        </view>
+      </view> 
+      <!-- 商家端登录按钮 -->
+      <view class="shop_btn_warp">
+        <view class="btn_warp">
+          <button class="login_btn_shop" type="primary" bindtap="handleLogin" data-type="shop">
+            点击进入商家端
+          </button>
+        </view>
+      </view>
+    </view>
+    <!-- view的联系客服点击后会弹出对话框告知官方邮箱 -->
+    <!-- <view class="login_problem" bind:tap="handleTapLoginProblem">登陆遇到问题？ 点击联系客服</view> -->
+    <view class="customer_service_btn_warp">
+      <button class="customer_service_btn" open-type="contact">登陆遇到问题？ 点击联系客服</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,161 @@
+.order_content {
+  border-radius: 30rpx;
+  background-color: white;
+  margin: 50rpx 20rpx;
+  border: 1rpx solid #f0eef4;
+  padding: 0 20rpx;
+  box-shadow: 10rpx 10rpx 10rpx 3rpx rgba(0, 0, 0, 0.164);
+}
+.order_content .basic_info {
+  position: relative;
+  font-size: 35rpx;
+  border-top: 1rpx solid #e9e8ea;
+}
+.order_content .basic_info .customer_name {
+  margin-top: 15rpx;
+  padding: 15rpx 10rpx;
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.order_content .basic_info .customer_tel {
+  padding: 10rpx;
+  color: var(--themeColor);
+}
+.order_content .basic_info .customer_tel .iconfont.icon-dianhua {
+  color: var(--themeColor);
+}
+.order_content .basic_info .address {
+  padding: 10rpx;
+  padding-bottom: 20rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.order_content .basic_info .order_status {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  font-size: 50rpx;
+  color: var(--themeColor);
+  font-weight: bold;
+}
+.order_content .basic_info .cancel_style {
+  color: red;
+}
+.order_content .basic_info .cancel_reason {
+  padding-bottom: 20rpx;
+}
+.order_content .goods .goods_title_warp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order_content .goods .goods_title_warp .goods_title {
+  padding: 20rpx 0;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.order_content .goods .goods_title_warp .iconfont {
+  color: #666;
+  font-size: 50rpx;
+}
+.order_content .goods .goods_title_warp .up {
+  transform: rotate(180deg);
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp {
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_pic_warp {
+  width: 25%;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_pic_warp .goods_pic {
+  width: 150rpx;
+  height: 150rpx;
+  flex: none;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_name_num {
+  width: 50%;
+  word-wrap: break-word;
+  padding: 0 20rpx;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_name_num .goods_name {
+  padding: 5rpx 0;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_name_num .goods_num {
+  padding: 5rpx 0;
+  font-weight: bold;
+}
+.order_content .goods .goods_group .goods_item .goods_item_warp .goods_price {
+  width: 25%;
+  font-weight: bold;
+  text-align: end;
+}
+.order_content .goods .goods_group .note .note_title {
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.order_content .goods .goods_group .note .note_content {
+  font-weight: normal;
+  padding: 10rpx;
+}
+.order_content .goods .fee_warp {
+  margin-top: 20rpx;
+}
+.order_content .goods .fee_warp .fee {
+  padding: 5rpx;
+}
+.order_content .goods .total_price {
+  padding: 10rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #f0eef4;
+}
+.order_content .other_info {
+  margin: 20rpx;
+  color: #797979;
+  display: flex;
+  justify-content: space-between;
+}
+.order_content .other_info .info_warp .item {
+  margin-top: 8rpx;
+}
+.order_content .other_info .copy_btn {
+  flex: none;
+  margin: auto 0;
+  background-color: var(--themeColor);
+  color: white;
+  font-size: 30rpx;
+  padding: 0 25rpx;
+}
+/* 用view来当button用，此处自定义点击view后产生的阴影反馈效果
+此段代码必须放在css最后 */
+.view_hover {
+  background: #dedede;
+}
+@font-face {
+  font-family: "iconfont";
+  src: url("//at.alicdn.com/t/font_1963711_fj2tkv0igcg.eot?t=1595561322092");
+  /* IE9 */
+  src: url("//at.alicdn.com/t/font_1963711_fj2tkv0igcg.eot?t=1595561322092#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOMAAsAAAAAB+AAAANAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDKgqDCIJNATYCJAMUCwwABCAFhG0HRRvOBsguIScbXkQL1NwGEi614t41kxT9dg5KPPy3H+2+mfmyooqIno6HIt7wEMUqKeIp0D2T93912m9UhlUFwAkQXefLcUh5slLYiNYDoploAsLp3n7sAVdCCZNupS06uWuLLpxIewSBBRwAJVYDBMTwTTPN1OznLz64nP4oS2CeveW2Fo29bG2OEgxorE1pQgUSmLfULuLgwJVfOkyg06wMHudrm7vBV4FGBeKBring25ArE6mhFeqBhUW8B2jTC9MdvJPfj3/21pJUGZp44VaNGcp/ws8js//XuBK+nxbBMjK2A4W4N6i/gWj/dkRntp+nw0CrlfiJn/Xt3v//NklKbuxvdbL2j1ckooaSu8FpO1D4CUqQ+SmC4GeJTUvPDkh4poV0osFd4BVEWSZJWB7d9gUL19eje7fs3LoR1bN5W+T6jhht6+HNs5HmTQaL7N50ZMtcTF/LHzV7KJrN0OPmKZBk0wptzMZ2m+1erm3l2Rpz4enFpznbLpaUPPnU++xVX/qF2yu3ep4+aU7Z9BRd8+e74R/cJf7VH/pO7CDkJtxhr0l02Hpe+ztvaFlc8ARyHL2mQZLspk1j697R+Wnfz34wfqyqdc8W6fiujOTzy1fmbh5raSl+pB96+jHaM7vD1APnXu6wyxO9hWloaB5L44D0wbS1mT4Btia/J1N/7Demdmetdfx/6wX8yEmrtG5NAZPCa+eCuf+HC6wpOR8pqpLmU05qrCzs4E3oxCr+S5hB7/aRjYCTCa2RCpLGDGStZbSQt0Oly36otU5Bp23qlncZIhBROrBpyYLQ7ywkvb5D1u8uWshvoTLqB9T6y9DpWgxt2GW1u/7nBCoSzXRihuoqdzKikv4qtRM1t10Rdb6k9qIwdBfNzcpph+rQiWKPKcakliclo0xwB621jkO7nVOX4FZUZZZFSldZdjYbelGWyh3g7xwBKSRkRk2YQelUnBPjrSX/zuc7IY2bnUJMFMxYeyHBoLdP5cqSA0DrJE5Qwbs8Y5ikySNJDMUInANVa2mRHfs5yjXczwqppCyWFV6XMtlOIwaVZJ0vc7xAdlACuqyKFDlKVFHLz3SFPOdur4cWxan53NC5z+JWAAA=") format("woff2"), url("//at.alicdn.com/t/font_1963711_fj2tkv0igcg.woff?t=1595561322092") format("woff"), url("//at.alicdn.com/t/font_1963711_fj2tkv0igcg.ttf?t=1595561322092") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url("//at.alicdn.com/t/font_1963711_fj2tkv0igcg.svg?t=1595561322092#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 35rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-xia:before {
+  content: "\e642";
+}
+.icon-you:before {
+  content: "\e6ce";
+}
+.icon-shang:before {
+  content: "\e600";
+}
+.icon-dianhua:before {
+  content: "\e643";
+}

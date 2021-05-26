@@ -1,0 +1,27 @@
+<view class="search_bar">
+  <input placeholder="请输入地址" value="{{inputAddr}}" bindinput="getsuggest" bindfocus="handleInputFocus"></input>
+  <button bindtap="handleCancel" hidden="{{!showCancelBtn}}">取消</button>
+</view>
+<!-- 地图模块 -->
+<map id="map" class="the_map" hidden="{{showCancelBtn}}" latitude="{{latitude}}" longitude="{{longitude}}" bindregionchange="handleRegionChange" >
+  <cover-image class="location_marker" src="../../../icons/location_marker.png"></cover-image>
+</map>
+<!-- 地址提示列表 -->
+<view hidden="{{!showCancelBtn}}" class="address_suggestion_container">
+  <!-- 绑定回填事件 -->
+  <view class="address_suggestion_item" wx:for="{{suggestion}}" wx:key="index" bindtap="suggestionAddrBackfill" id="{{index}}">
+    <!-- 渲染地址title -->
+    <view class="address_title">{{item.title}}</view>
+    <!-- 渲染详细地址 -->
+    <view class="address_detail">{{item.addr}}</view>
+  </view>
+</view>
+<!-- 可选地址列表 -->
+<scroll-view hidden="{{showCancelBtn}}" class="available_addr" scroll-y="{{true}}">
+  <view class="address_suggestion_item" wx:for="{{availableAddr}}" wx:key="index" bindtap="availableAddrBackfill" id="{{index}}">
+    <!-- 渲染地址title -->
+    <view class="{{item.address_title_select?'address_title_select':'address_title'}}">{{item.title}}</view>
+    <!-- 渲染详细地址 -->
+    <view class="address_detail">{{item.addr}}</view>
+  </view>
+</scroll-view>

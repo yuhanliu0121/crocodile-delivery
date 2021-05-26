@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "FooterTool": "../../../components/FooterTool/FooterTool",
+    "mp-icon": "../../../components/icon/icon"
+  }
+}

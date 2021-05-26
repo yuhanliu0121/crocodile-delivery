@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-form": "../../../components/form/form",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
+    "mp-icon": "../../../components/icon/icon"
+
+  },
+  "navigationBarTitleText": "商品详情"
+}

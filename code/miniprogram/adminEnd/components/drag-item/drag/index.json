@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+    "mp-dialog": "../../../components/dialog/dialog",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
+    "mp-slideview": "../../../components/slideview/slideview",
+    "mp-icon":"../../../components/icon/icon"
+  },
+	"component": true
+}

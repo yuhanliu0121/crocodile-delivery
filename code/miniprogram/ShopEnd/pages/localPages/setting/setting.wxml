@@ -1,0 +1,39 @@
+<!-- 使用opendata可以在不授权情况下直接展示用户公开信息 -->
+<view class='user_info_warp'>
+  <view class="bg_warp">
+    <image wx:if="{{!logoUrl}}" class="bg" src="cloud://env-miamielm-5gliunnq19c0a342.656e-env-miamielm-5gliunnq19c0a342-1304795284/system/noPic.jpg"></image>
+    <image wx:else class="bg" src="{{logoUrl}}"></image>
+  </view>
+  <view class="info_warp"> 
+    <view class="shop_info">
+      <image wx:if="{{!logoUrl}}" class="shop_logo" src="cloud://env-miamielm-5gliunnq19c0a342.656e-env-miamielm-5gliunnq19c0a342-1304795284/system/noPic.jpg"></image>
+      <image wx:else class="shop_logo" src="{{logoUrl}}"></image>
+      <view wx:if="{{!shopName}}" class="shop_name">网络错误</view>
+      <view wx:else class="shop_name">{{shopName}}</view>
+    </view>
+    <view class="user_info">
+      <view class="user_icon">
+        <open-data type='userAvatarUrl'></open-data>
+      </view>
+      <view class='user_name'>
+        <open-data type='userNickName'></open-data>
+      </view>
+      <view class="user_role_warp">
+        <view class="user_role">{{roleText}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<mp-cells ext-class="cells_class">
+  <mp-cell link hover value="基本信息" bindtap="handleTapBasicInfo"></mp-cell>
+  <mp-cell link hover value="营业状态" bindtap="handleTapShopStatus">
+    <view slot="footer" class="shop_status_text {{shopStatus===1?'active':'inactive'}}">
+      {{shopStatusText}}
+    </view>
+  </mp-cell>
+  <mp-cell hover ext-class="btn_warp">
+    <button open-type="contact">联系客服</button>
+  </mp-cell>
+  <mp-cell hover value="登出商家端" bindtap="handleLogOut"></mp-cell>
+</mp-cells>
+<myTabbar current="{{2}}"></myTabbar>

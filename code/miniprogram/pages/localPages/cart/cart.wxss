@@ -1,0 +1,92 @@
+.cart_content {
+  border-radius: 30rpx;
+  background-color: white;
+  margin: 25rpx;
+  border: 1rpx solid #f0eef4;
+  padding: 0 20rpx;
+}
+.cart_content .shop_title_warp {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #e9e8ea;
+  justify-content: space-between;
+}
+.cart_content .shop_title_warp .shop_title {
+  display: flex;
+  align-items: center;
+}
+.cart_content .shop_title_warp .shop_title .shop_title_text {
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.cart_content .shop_title_warp .shop_title .iconfont.icon-right_arrow {
+  font-size: 30rpx;
+}
+.cart_content .shop_title_warp .iconfont.icon-trash_can {
+  color: var(--themeColor);
+  font-size: 40rpx;
+}
+.cart_content .goods_warp .goods_item_warp {
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.cart_content .goods_warp .goods_item_warp .goods_pic_warp {
+  flex: 1;
+}
+.cart_content .goods_warp .goods_item_warp .goods_pic_warp .goods_pic {
+  width: 100%;
+  height: 100%;
+}
+.cart_content .goods_warp .goods_item_warp .goods_name_num {
+  flex: 3;
+  padding: 0 20rpx;
+}
+.cart_content .goods_warp .goods_item_warp .goods_name_num .goods_num {
+  font-weight: bold;
+}
+.cart_content .goods_warp .goods_item_warp .goods_price {
+  flex: 1;
+  font-weight: bold;
+  text-align: end;
+}
+.cart_content .total_pay_warp {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.cart_content .total_pay_warp .pay_info {
+  display: flex;
+  flex-direction: column;
+}
+.cart_content .total_pay_warp .pay_info .total_price {
+  font-size: 35rpx;
+  padding: 5rpx;
+}
+.cart_content .total_pay_warp .pay_info .total_price .total_price_text {
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.cart_content .total_pay_warp .pay_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rpx 40rpx;
+  border-radius: 20rpx;
+  font-size: 38rpx;
+}
+.cart_content .total_pay_warp .active {
+  color: white;
+  background-color: var(--themeColor);
+}
+.cart_content .total_pay_warp .inactive {
+  color: #ffffff;
+  background-color: #a2d9da;
+}
+/*此处自定义点击元素后产生的阴影反馈效果
+  此段代码必须放在css最后 */
+.view_hover {
+  background: #dedede;
+}

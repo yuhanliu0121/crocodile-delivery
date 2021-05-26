@@ -1,0 +1,40 @@
+<wxs module="toLocalTime" src="../../../lib/goods/toLocalTime.wxs" module="filters"></wxs>
+<view class="cates">
+    <view class="cates_container">
+        <!-- 右侧商品内容 -->
+        <view class="goods_list">
+            <block wx:if="{{allGoods.length === 0}}">
+                <view style="background-color: ##e4e4e4; height:90vh;width:100%; display:flex;justify-content: center;align-items: center;">
+                    <view style="color:#aeaeae">--- 还没有发布过商品哦 ---</view>
+                    <view style="color:blue; text-decoration:underline; padding-top:15rpx" bindtap="handleAddGoods">
+                        点击发布商品
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="goods_item" wx:for="{{allGoods}}" wx:key="goodsId" bindtap="handleTapEdit" hover-class="view_hover" hover-stay-time="150" data-index="{{index}}">
+                    <view class="goods_info_warp">
+                        <view class="goods_pic_warp">
+                            <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix"></image>
+                        </view>
+                        <view class="goods_basic_info_warp">
+                            <view class="goods_name">{{item.goodsName}}</view>
+                            <view class="goods_stock">数量: {{item.goodsStock}}</view>
+                            <view class="bottom_warp">
+                                <view class="goods_price">$ {{item.goodsPrice}}</view>
+                            </view>
+                        </view>
+                        <view wx:if="{{item.status === 0}}" class="goods_status under_censor">审核中</view>
+                        <view wx:elif="{{item.status === 1}}" class="goods_status pass">通过审核</view>
+                        <view wx:elif="{{item.status === 2}}" class="goods_status reject">审核不通过</view>
+                        <view class="time_info_warp">
+                            <view class="create_time">提交时间：{{filters.formatDate(item.watermark)}}</view>
+                            <view class= "censor_time" wx:if="{{item.passTime !== 0}}" class="censor_time">过审时间：{{filters.formatDate(item.passTime)}}</view>
+                            <view class= "censor_time" wx:if="{{item.expireTime !== 0}}" class="censor_time">过期时间：{{filters.formatDate(item.expireTime)}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

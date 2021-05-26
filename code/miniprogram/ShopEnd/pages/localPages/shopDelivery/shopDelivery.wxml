@@ -1,0 +1,19 @@
+
+<view class="deliver_info_wrap">
+  <navigator url="/pages/index/index" class="deliver_info_item">
+    配送范围
+    <view class="arrow"></view>
+  </navigator>
+  <view bindtap="bindViewTap" class="deliver_info_item">
+    <text>最低消费</text>
+    <text class="minprice" >${{email_value}}</text>
+    <view class="arrow"></view>
+  </view>
+</view>
+<!-- <button bindtap="bindViewTap">点击弹出对话框</button> -->
+<view>
+  <modal title="对话框" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+    <input hidden="{{emial}}" style='margin:20rpx auto' type='number' placeholder="请输入最低消费金额" bindinput='email_value' value='{{email_value}}' cursor-spacing='{{space}}' focus='{{focusValue}}' />
+    {{data.showWindows.Content}}
+  </modal>
+</view>

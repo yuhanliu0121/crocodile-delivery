@@ -1,0 +1,110 @@
+.item-wrap {
+  position: relative; }
+  .item-wrap .item {
+    position: absolute;
+    width: 100%;
+    z-index: 1; }
+    .item-wrap .item.itemTransition {
+      transition: transform 0.3s !important; }
+    .item-wrap .item.zIndex {
+      z-index: 2; }
+    .item-wrap .item.cur {
+      transition: initial; }
+    .item-wrap .item.fixed {
+      z-index: 0 !important; }
+
+.info {
+  position: relative;
+  padding-top: 100%;
+  background: #ffffff; }
+  .info__item {
+    position: absolute;
+    border: 1rpx solid #ebedf0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 10rpx;
+    box-sizing: border-box; }
+    .info__item .image {
+      width: 100%;
+      height: 100%; }
+
+.cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20rpx; */
+  border-bottom: 1rpx solid #ebedf0;
+  background: #FFFFFF; }
+  .cell .goods_info_warp {
+    position: relative;
+    padding: 8rpx 0;
+    background-color: white;
+    display: flex;
+  }
+  .cell .goods_info_warp .goods_pic_warp .goods_pic {
+    width: 150rpx;
+    height: 150rpx;
+    flex: none;
+  }
+  .cell .goods_info_warp .goods_pic_warp .mask {
+    width: 150rpx;
+    height: 150rpx;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cell .goods_info_warp .goods_info_warp {
+    width: 65%;
+    margin-left: 15rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .cell .goods_info_warp .goods_info_warp .goods_name {
+    font-size: 25rpx;
+    font-weight: bold;
+    width: 350rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .cell .goods_info_warp .goods_info_warp .goods_buy_limit {
+    font-size: 20rpx;
+    color: #666;
+  }
+  .cell .goods_info_warp .goods_info_warp .bottom_warp {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .cell .goods_info_warp .goods_info_warp .bottom_warp .goods_price {
+    flex: 1.2;
+    font-size: 30rpx;
+    color: var(--themeColor);
+  }
+  .cell .checkbox{
+    text-align: center; 
+    line-height: 50rpx;
+    background:#eee;
+    color: var(--themeColor);
+    border-radius: 4px;
+    font-size: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 5%;
+    top: 25%;
+  }

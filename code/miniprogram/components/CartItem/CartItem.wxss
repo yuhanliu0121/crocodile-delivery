@@ -1,0 +1,107 @@
+.cart_content {
+  border-radius: 30rpx;
+  background-color: white;
+  margin: 25rpx;
+  border: 1rpx solid #f0eef4;
+  padding: 0 20rpx;
+}
+.cart_content .shop_title_warp {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #e9e8ea;
+  justify-content: space-between;
+}
+.cart_content .shop_title_warp .shop_title {
+  display: flex;
+  align-items: center;
+}
+.cart_content .shop_title_warp .shop_title .shop_title_text {
+  font-weight: bold;
+  font-size: 33rpx;
+}
+.cart_content .shop_title_warp .shop_title .iconfont.icon-right_arrow {
+  font-size: 30rpx;
+}
+.cart_content .shop_title_warp .iconfont.icon-trash_can {
+  color: var(--themeColor);
+}
+.cart_content .goods_warp .goods_item_warp {
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.cart_content .goods_warp .goods_item_warp .goods_pic {
+  width: 30%;
+  flex: none;
+}
+.cart_content .goods_warp .goods_item_warp .goods_info {
+  display: flex;
+  flex-direction: column;
+}
+.cart_content .goods_warp .goods_item_warp .goods_info .goods_name_price {
+  display: flex;
+}
+.cart_content .goods_warp .goods_item_warp .goods_info .goods_name_price .goods_name {
+  flex: 0 0 325rpx;
+}
+.cart_content .goods_warp .goods_item_warp .goods_info .goods_name_price .goods_price {
+  font-weight: bold;
+}
+.cart_content .goods_warp .goods_item_warp .goods_info .goods_num {
+  padding: 10rpx 0;
+  font-weight: bold;
+}
+.cart_content .total_pay_warp {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.cart_content .total_pay_warp .pay_info {
+  display: flex;
+  flex-direction: column;
+}
+.cart_content .total_pay_warp .pay_info .total_price {
+  font-size: 35rpx;
+  padding: 5rpx;
+}
+.cart_content .total_pay_warp .pay_info .total_price .total_price_text {
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.cart_content .total_pay_warp .pay_info .fee {
+  font-size: 30rpx;
+}
+.cart_content .total_pay_warp .pay_btn {
+  padding: 0 40rpx;
+  border-radius: 20rpx;
+  font-size: 38rpx;
+  color: white;
+  background-color: var(--themeColor);
+}
+/*此处自定义点击元素后产生的阴影反馈效果
+此段代码必须放在css最后 */
+.view_hover {
+  background: #dedede;
+}
+@font-face {
+  font-family: "iconfont";
+  src: url("//at.alicdn.com/t/font_1973779_a27cvqj48l7.eot?t=1596001830109");
+  /* IE9 */
+  src: url("//at.alicdn.com/t/font_1973779_a27cvqj48l7.eot?t=1596001830109#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOEAAsAAAAAB2wAAAM4AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqCSIIdATYCJAMMCwgABCAFhG0HQRtuBsguMYXrAyYhimmjslmj033314XH56PjxMP3+/1v7XPOvV+lqcX/s0kST4ImEsN0omiDzJAJldI8ipbw/ndNf8tjzohAsTxq7srpchmSmkS154EUoFCo5oDdJuQGzrnOn98WDVbgRZn+6zUBV376AStEmwcbcJpYzJGNeAMQ/BXqoyRoazXi7PNcju+uxOe3LLe1pm086gUYBxTomJMDCQskIG8Yu6AlribQalgOzWa6px/MCrNTIO7VFQHMmZCisGyzUFeMLOIVgGpOj6FbALwMvh//IRpmkiozex7cbbVAwy9/gif2yHsWYDqdA2wcGYtAIS4rXRd0UWqRTquq0GvloFaENFXUtglEmqbe6B8vETUztx3MwnTilw6f4FdjJJBBDTJ3gAeQ2X+jUHUOcb6D1FRZY9F32dWtaXhldzs10wF5o3v7PzGj0QUz0yMU2T63Bpw+EwybpgVGCu/aMuihEba2hmAiTL3X6p6D0ry9eDNPTgi83+nzO6miZi3siozmteXj99QAx3fXu/L99t/7vaW1vXr6t5wixbkAwEQPEDQBmHrc7gBt6ngv4I+tdX6wf3y8WQtIFukQYU6Xv45/eM+FmCtGX+dKZftPcuButFO0C3ZugOh4FDipip0pAbjZ49fEsa+uG+ABGsFueBiAxkK++R9+49HHjUoBNX/aCvhGfloQbIRAd4vms3QHb13csaJoUtOciyJyREY2O2e4J6NWzauB6ev1Mlwz0DmX0GwgQdJkCFmzSaIwF1Fps4RasxW0WtA+vk0fSidKC+atAIRuR0g6fUDW7Y4ozGdUBv2i1h06tDqLkBnbTIeNah5ggWELEieQTSJu2bYy7zC/FysjToGmpQFrEFPVFkWFwXA+247dmE7RRx1VihiTkUyJC7WB9bDTSZCHEjuWWJ6VMU9VfqhS9aQ8ibjA2wYKEzCYBSKagNhICDfZq814Fz7fC1OMcBLQBlpVcBBGqWyNI4XyFHQg2lXuTrRbOUc1SlGEYWSIjCJckDbgwJxWikA81c3sMAmTxzog4VElH1WTu6rylte43m8dtDIPzpEiR9F2v65YGSdQSsa82EBQrZwkuAEA") format("woff2"), url("//at.alicdn.com/t/font_1973779_a27cvqj48l7.woff?t=1596001830109") format("woff"), url("//at.alicdn.com/t/font_1973779_a27cvqj48l7.ttf?t=1596001830109") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url("//at.alicdn.com/t/font_1973779_a27cvqj48l7.svg?t=1596001830109#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 35rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-right_arrow:before {
+  content: "\e649";
+}
+.icon-trash_can:before {
+  content: "\e6d0";
+}

@@ -1,0 +1,28 @@
+<!-- 使用opendata可以在不授权情况下直接展示用户公开信息 -->
+<view class='user_info_warp'>
+    <view class="user_bg">
+        <open-data type='userAvatarUrl'></open-data>
+    </view>
+    <view class="user_info">
+        <view class="user_icon">
+            <open-data type='userAvatarUrl'></open-data>
+        </view>
+        <view class='user_name'>
+            <open-data type='userNickName'></open-data>
+        </view>
+    </view>
+</view>
+<!-- 用户信息操你模块 -->
+<mp-cells ext-class="cells_class">
+    <mp-cell link url="../myOrder/myOrder?type=1" hover value="我的订单"></mp-cell>
+    <mp-cell link url="../myAddress/myAddress" hover value="我的地址"></mp-cell>
+    <mp-cell link hover value="权限管理" bindtap="handleManageAuth"></mp-cell>
+    <mp-cell link url="../aboutUs/aboutUs" hover value="关于我们"></mp-cell>
+    <mp-cell hover ext-class="btn_warp">
+        <button open-type="contact">联系客服</button>
+    </mp-cell>
+    <mp-cell hover ext-class="btn_warp">
+        <button open-type="feedback">意见反馈</button>
+    </mp-cell>
+    <mp-cell hover value="登出客户端" bindtap="handleLogOut"></mp-cell>
+</mp-cells>

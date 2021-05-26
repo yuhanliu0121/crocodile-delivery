@@ -1,0 +1,52 @@
+.page_container .background_img {
+  vertical-align: middle;
+  height: 100vh;
+  width: 100vw;
+}
+.page_container .login {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+}
+.page_container .login .login_btn_warp .customer_btn_warp {
+  flex: 1;
+  margin-bottom: 100rpx;
+}
+.page_container .login .login_btn_warp .customer_btn_warp .btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .login_btn_warp .customer_btn_warp .btn_warp .login_btn_customer {
+  font-size: 30rpx;
+  width: 70%;
+}
+.page_container .login .login_btn_warp .shop_btn_warp {
+  margin-bottom: 50rpx;
+  flex: 1;
+}
+.page_container .login .login_btn_warp .shop_btn_warp .btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .login_btn_warp .shop_btn_warp .btn_warp .login_btn_shop {
+  font-size: 30rpx;
+  width: 70%;
+}
+.page_container .login .customer_service_btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn {
+  font-size: 30rpx;
+  width: 70%;
+  background-color: transparent;
+  color: white;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn button::after {
+  border: none;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn input {
+  outline: none;
+  border: none;
+  list-style: none;
+}

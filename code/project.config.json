@@ -1,0 +1,218 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "appid": "wx2604ce53df094ce9",
+  "projectname": "miami_elm_final",
+  "libVersion": "2.12.2",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 1,
+          "name": "购物车",
+          "pathName": "pages/localPages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "首页",
+          "pathName": "pages/localPages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的界面",
+          "pathName": "pages/localPages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的地址",
+          "pathName": "pages/localPages/myAddress/myAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "我的订单",
+          "pathName": "pages/localPages/myOrder/myOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "订单详情",
+          "pathName": "pages/localPages/orderDetail/orderDetail",
+          "query": "orderId=HJKUIHOI1235416",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单详情",
+          "pathName": "pages/localPages/orderDetail/orderDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "商店详情 ",
+          "pathName": "pages/localPages/shopDetail/shopDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "云开发测试",
+          "pathName": "pages/localPages/testPage/testPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "支付(确认订单)",
+          "pathName": "pages/localPages/pay/pay",
+          "query": "shopId=7954821456",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "云开发测试（商品详情）",
+          "pathName": "pages/localPages/testPageGoodsDetail/testPageGoodsDetail",
+          "query": "goodsId=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "地图",
+          "pathName": "pages/localPages/map/map",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "pages/localPages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 15,
+          "name": "自营跳蚤市场",
+          "pathName": "pages/localPages/ugShopDetail/ugShopDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布商品",
+          "pathName": "pages/localPages/addGoods/addGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的发布",
+          "pathName": "pages/localPages/myGoods/myGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "编辑地址",
+          "pathName": "pages/localPages/editAddress/editAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "编辑订单备注",
+          "pathName": "pages/localPages/editNote/editNote",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "管理员操作界面",
+          "pathName": "adminEnd/pages/localPages/adminPage/adminPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "获取用户昵称",
+          "pathName": "ShopEnd/pages/localPages/getUserInfo/getUserInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "初始化商店",
+          "pathName": "ShopEnd/pages/localPages/initialShop/initialShop",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择端",
+          "pathName": "pages/localPages/selAppEnd/selAppEnd",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "管理员界面",
+          "pathName": "adminEnd/pages/localPages/adminPage/adminPage",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

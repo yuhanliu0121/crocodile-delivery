@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "mp-tabs": "../../../components/tabs/index",
+    "NewOrder": "../../../components/NewOrder/NewOrder",
+    "HandleOrder": "../../../components/HandleOrder/HandleOrder",
+    "DeliverOrder": "../../../components/DeliverOrder/DeliverOrder",
+    "InputDialog": "../../../components/InputDialog/InputDialog",
+    "myTabbar": "../../../components/myTabbar/myTabbar"
+
+  },
+  "navigationBarTitleText": "订单处理"
+}

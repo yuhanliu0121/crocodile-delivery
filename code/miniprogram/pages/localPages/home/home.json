@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "SearchInput":"../../../components/SearchInput/SearchInput",
+    "ShopCard":"../../../components/ShopCard/ShopCard"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true
+}

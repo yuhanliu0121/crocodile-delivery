@@ -1,0 +1,64 @@
+.page_container {
+  .background_img {
+    // vertical-align: middle;是为了消除在view中嵌套一个image会产生的神秘空白
+    vertical-align: middle;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .login {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    .login_btn_warp {
+      // display: flex;
+
+      .customer_btn_warp {
+        flex: 1;
+        margin-bottom: 100rpx;
+        .btn_warp {
+          display: flex;
+          justify-content: center;
+          .login_btn_customer {
+            font-size: 30rpx;
+            width: 70%;
+          }
+        }
+      }
+
+      .shop_btn_warp {
+        margin-bottom: 50rpx;
+        flex: 1;
+
+        .btn_warp {
+          display: flex;
+          justify-content: center;
+          .login_btn_shop {
+            font-size: 30rpx;
+            width: 70%;
+          }
+        }
+      }
+    }
+
+    .customer_service_btn_warp {
+      display: flex;
+      justify-content: center;
+      .customer_service_btn {
+        font-size: 30rpx;
+        width: 70%;
+        background-color: transparent;
+        // 去除button默认样式只留下文字
+        button::after {
+          border: none;
+        }
+        input {
+          outline: none;
+          border: none;
+          list-style: none;
+        }
+        color: white;
+      }
+    }
+  }
+}

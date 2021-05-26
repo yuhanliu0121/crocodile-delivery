@@ -1,0 +1,18 @@
+var formatNumber = function (n) {
+  n = n.toString();
+  return n[1] ? n : "0" + n;
+};
+/**
+ * 将时间戳(1570550400)格式转为 yyyy-MM-dd格式
+ */
+var formatDate = function (datetime) {
+  var date = getDate(datetime);
+  var year = date.getFullYear();
+  //   dateObject 的月份字段，使用本地时间。返回值是 0（一月） 到 11（十二月） 之间的一个整数。
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  return [year, month, day].map(formatNumber).join("-");
+};
+module.exports = {
+  formatDate: formatDate,
+};

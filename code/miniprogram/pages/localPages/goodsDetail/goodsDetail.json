@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "FooterTool":"../../../components/FooterTool/FooterTool",
+    "CartWindow":"../../../components/CartWindow/CartWindow"
+  },
+  "navigationBarTitleText": "商品详情"
+}

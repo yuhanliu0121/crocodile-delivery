@@ -1,0 +1,22 @@
+<image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}"></image-cropper>
+<view class="hint">
+  <view>拖动图片选择裁剪区域</view>
+  <view>双指滑动扩大或缩小裁剪区域</view>
+  <view>点击裁剪框可预览裁剪后的图片</view>
+</view>
+<view class='bottom'>
+  <!-- <text style='color:white;margin-right:5rpx;'>锁定裁剪框宽 </text><switch checked='{{disable_width?true:false}}' bindchange="switchChangeDisableWidth"/> -->
+  <!-- <text style='color:white;margin-right:5rpx;'>锁定裁剪框高 </text><switch checked='{{disable_height?true:false}}' bindchange="switchChangeDisableHeight"/> -->
+  <button type="default" catchtap='upload' style="margin-right:100rpx">重选图片</button>
+  <button type="default" bindtap='submit'>确定上传</button>
+  <!-- <text style='color:white;margin-right:5rpx;'>锁定比例</text><switch checked='{{disable_ratio?true:false}}' bindchange="switchChangeDisableRatio"/> -->
+  <!-- <text style='color:white;margin-right:5rpx;'>锁定旋转 </text><switch checked='{{disable_rotate?true:false}}' bindchange="switchChangeDisableRotate"/> -->
+  <!-- <text style='color:white;margin-right:5rpx;'>限制移动 </text><switch checked='{{limit_move?true:false}}' bindchange="switchChangeLimitMove"/> -->
+  <!-- <button type="default" catchtouchstart='top' catchtouchend='end' data-type="top">上</button>
+  <button type="default" catchtouchstart='bottom' catchtouchend='end' data-type="bottom">下</button>
+  <button type="default" catchtouchstart='left' catchtouchend='end' data-type="left">左</button>
+  <button type="default" catchtouchstart='right' catchtouchend='end' data-type="right">右</button>
+  <button type="default" catchtouchstart='enlarge' catchtouchend='end' data-type="enlarge">放大</button>
+  <button type="default" catchtouchstart='narrow' catchtouchend='end' data-type="narrow">缩小</button>
+  <button type="default" catchtouchstart='rotate' catchtouchend='end' data-type="rotate">旋转</button> -->
+</view>

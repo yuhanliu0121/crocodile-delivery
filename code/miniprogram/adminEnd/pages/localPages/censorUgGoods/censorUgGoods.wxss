@@ -1,0 +1,130 @@
+page {
+  padding: 25rpx;
+}
+.cates {
+  height: 100%;
+}
+.cates .cates_container {
+  /* less中使用calc的时候要注意 */
+  height: 100vh;
+}
+.cates .cates_container .goods_list {
+  padding-bottom: 60rpx;
+}
+.cates .cates_container .goods_list .goods_item {
+  margin-bottom: 50rpx;
+  background-color: white;
+  border: 3rpx solid black;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview {
+  border-bottom: 3rpx solid #e6e6e6;
+  position: relative;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp {
+  padding: 8rpx 0;
+  display: flex;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_pic_warp {
+  padding: 10rpx;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_pic_warp .goods_pic {
+  width: 150rpx;
+  height: 150rpx;
+  flex: none;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_status {
+  position: absolute;
+  top: 10%;
+  right: 8%;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .pass {
+  color: #22d363;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .reject {
+  color: red;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .under_censor {
+  color: blue;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .time_info_warp {
+  position: absolute;
+  bottom: 15%;
+  right: 8%;
+  font-size: 25rpx;
+  color: #666;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_basic_info_warp {
+  width: 65%;
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_basic_info_warp .goods_name {
+  font-size: 25rpx;
+  font-weight: bold;
+  width: 350rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_basic_info_warp .goods_stock {
+  font-size: 20rpx;
+  color: #666;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_basic_info_warp .bottom_warp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.cates .cates_container .goods_list .goods_item .goods_overview .goods_info_warp .goods_basic_info_warp .bottom_warp .goods_price {
+  flex: 1.2;
+  font-size: 30rpx;
+  color: var(--themeColor);
+}
+.cates .cates_container .goods_list .goods_item .goods_detail .reject_reason {
+  background-color: red;
+  color: white;
+  font-size: 35rpx;
+  padding: 10rpx;
+}
+.cates .cates_container .goods_list .goods_item .goods_detail .bottom_btm {
+  width: 100%;
+  display: flex;
+  height: 90rpx;
+  border-top: 1rpx solid #ccc;
+}
+.cates .cates_container .goods_list .goods_item .goods_detail .bottom_btm .delete_btm {
+  border-radius: 0;
+  width: 100%;
+  line-height: 90rpx;
+  background-color: red;
+  color: white;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  border-top: 1rpx solid #ccc;
+}
+.cates .cates_container .goods_list .goods_item .goods_detail .bottom_btm .save_btm {
+  border-radius: 0;
+  width: 100%;
+  line-height: 90rpx;
+  background-color: #00b26a;
+  color: white;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.input_dialog .input_warp {
+  margin-top: 30rpx;
+  border-bottom: 2rpx solid black;
+}
+.input_dialog .input_warp .input_text {
+  text-align: start;
+}
+.view_hover {
+  background: #dedede;
+}

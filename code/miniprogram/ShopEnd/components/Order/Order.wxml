@@ -1,0 +1,76 @@
+<wxs module="filters" src="../../lib/calculate/toFix.wxs"></wxs>
+<view class="order_content">
+    <!-- 订单基础信息: 单号，顾客名，电话，地址 -->
+    <view class="basic_info">
+        <!-- <view class="order_num"># {{orderDetail.orderNum}}</view> -->
+        <view class="customer_name">{{orderDetail.receiverName}}</view>
+        <view class="customer_tel" bindtap="handleTapTel">
+            <text class="iconfont icon-dianhua"></text>
+            联系顾客
+        </view>
+        <view class="address">
+            <text user-select>{{orderDetail.street}}, {{orderDetail.city}}</text>
+        </view>
+        <view class="order_status {{orderDetail.status===-1?'cancel_style':''}}">
+            {{statusText}}
+        </view>
+        <view wx:if="{{orderDetail.status===-1}}" class="cancel_reason cancel_style">
+            取消原因: {{orderDetail.cancelReason}}
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="goods">
+        <view bindtap="handleTapGoodsDetail" class="goods_title_warp" hover-class="view_hover" hover-stay-time="100">
+            <view class="goods_title">商品详情</view>
+            <view class="iconfont icon-xia {{isShowGoodsDetail?'up':''}}"></view>
+        </view>
+        <view hidden="{{!isShowGoodsDetail}}" class="goods_group">
+            <view wx:for="{{orderDetail.validGoods}}" wx:key="goodsId" class="goods_item">
+                <view class="goods_item_warp">
+                    <view class="goods_pic_warp">
+                        <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix" catchtap="handleTapImg" data-src="{{item.goodsPicUrl}}"></image>
+                    </view>
+                    <view class="goods_name_num">
+                        <view class="goods_name">{{item.goodsName}}</view>
+                        <view class="goods_num">x{{item.num}}</view>
+                    </view>
+                    <view class="goods_price">${{filters.toFix(item.num * item.goodsPrice)}}</view>
+                </view>
+            </view>
+            <view class="note">
+                <text class="note_title">备注:</text>
+                <text class="note_content">{{orderDetail.note}}</text>
+            </view>
+            <view hidden="{{!isShowGoodsDetail}}" class="fee_warp">
+                <view class="fee">服务费: $ {{orderDetail.serviceFee}}</view>
+                <view class="fee">配送费: $ {{orderDetail.deliverFee}}</view>
+            </view>
+        </view>
+        <view class="total_price">总计: $ {{orderDetail.totalPrice}}</view>
+    </view>
+    <!-- 订单其他信息：下单时间，订单编号 -->
+    <view hidden="{{!isShowGoodsDetail}}">
+        <view class="other_info">
+            <view class="info_warp">
+                <view class="item note">订单备注: {{orderDetail.note}}</view>
+                <view class="item order_id">订单编号: {{orderDetail.orderId}}</view>
+                <view class="item createTime">
+                    创建时间: {{filters.toDateStr(orderDetail.createTime)}}
+                </view>
+                <view class="item payTime">下单时间: {{filters.toDateStr(orderDetail.payTime)}}</view>
+                <view class="item selDeliverTime">
+                    预定配送时间: {{filters.toDateStr(orderDetail.selDeliverTime)}}
+                </view>
+                <view wx:if="{{orderDetail.deliverTime}}" class="item deliverTime">
+                    实际配送时间: {{filters.toDateStr(orderDetail.deliverTime)}}
+                </view>
+                <view wx:if="{{orderDetail.completeTime}}" class="item completeTime">
+                    {{orderDetail.status===-1?'取消时间':'送达时间'}}: {{filters.toDateStr(orderDetail.completeTime)}}
+                </view>
+            </view>
+            <button bindtap="handleTapCopyInfo" class="copy_btn" hover-class="view_hover" hover-stay-time="150">
+                复制
+            </button>
+        </view>
+    </view>
+</view>

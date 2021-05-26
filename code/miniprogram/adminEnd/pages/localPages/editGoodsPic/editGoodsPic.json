@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "image-cropper":"../../../components/image-cropper/image-cropper"
+  },
+  "disableScroll": true
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-checkbox-group": "../../../components/checkbox-group/checkbox-group",
+    "mp-checkbox": "../../../components/checkbox/checkbox",
+    "mp-cells": "../../../components/cells/cells" 
+  },
+  "navigationBarTitleText": "营业日选择"
+}

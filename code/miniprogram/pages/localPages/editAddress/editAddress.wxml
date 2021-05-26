@@ -1,0 +1,37 @@
+<!-- receiverName
+phoneNumber
+state
+city
+street
+zipcode
+geoPoint -->
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <form bindsubmit="handleSaveAddressInfo">
+        <mp-cells>
+            <mp-cell prop="receiverName" title="收货人姓名">
+                <input value="{{addressInfo.receiverName}}" name="receiverName" class="weui-input" data-field="receiverName" placeholder="请输入收货人姓名" maxlength="20" />
+            </mp-cell>
+            <mp-cell prop="phoneNumber" title="收货人电话">
+                <input value="{{addressInfo.phoneNumber}}" name="phoneNumber" type="number" class="weui-input" data-field="phoneNumber" placeholder="请输入收货人电话" maxlength="15" />
+            </mp-cell>
+            <mp-cell prop="street" title="街道地址">
+                <input value="{{addressInfo.street}}" name="street"  type="text" data-field="street" class="weui-input" placeholder="请输入街道地址"  maxlength="50"/>
+            </mp-cell>
+            <mp-cell prop="city" title="所在城市">
+                <input value="{{addressInfo.city}}" name="city"  type="text" data-field="city" class="weui-input" placeholder="请输入所在城市" maxlength="30"/>
+            </mp-cell>
+            <mp-cell prop="stateIndex" title="所在州份">
+                <picker value="{{stateIndex}}" name="stateIndex" data-field="shopCate" mode="selector" range="{{selStateItems}}"  bindchange="handleChangeState">
+                    <view class="weui-input" style="color:#808080">{{addressInfo.state||state}}</view>
+                </picker>
+            </mp-cell>
+            <mp-cell prop="zipcode" title="Postal">
+                <input value="{{addressInfo.zipcode}}" name="zipcode"  type="number" data-field="zipcode" class="weui-input" placeholder="请输入zipcde" maxlength="15"/>
+            </mp-cell>
+        </mp-cells>
+        <view class="bottom_btm">
+            <button wx:if="{{addressInfo.addressId}}" class="delete_btn" bindtap="handleDeleteAddressInfo">删除地址</button>
+            <button form-type="submit" class="save_btn">保存地址</button>
+        </view>
+    </form>
+</mp-form>

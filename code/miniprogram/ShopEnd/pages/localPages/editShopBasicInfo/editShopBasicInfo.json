@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-form-page": "../../../components/form-page/form-page",
+    "mp-form": "../../../components/form/form",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell"
+
+  },
+  "navigationBarTitleText": "商店基本信息"
+}

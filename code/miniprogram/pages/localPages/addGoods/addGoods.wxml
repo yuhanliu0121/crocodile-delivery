@@ -1,0 +1,78 @@
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <form bindsubmit="handleSaveGoods">
+        <mp-cells>
+            <mp-cell prop="goodsPicUrl" title="商品图片" ext-class="goods_img">
+                <view wx:if="{{!img}}" class="add_pic_btm" bind:tap="handleUploadImage">+</view>
+                <view wx:else class="up_img_warp">
+                    <image src="{{img}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                    <view class="delete_pic_btm_warp" bindtap="handleRemoveImg">
+                        <view class="delete_pic_btm">删除</view>
+                    </view>
+                </view>
+            </mp-cell>
+            <mp-cell prop="goodsName" title="商品名称">
+                <input name="goodsName" class="weui-input" data-field="goodsName" placeholder="请输入商品名称" maxlength="30" />
+            </mp-cell>
+            <mp-cell prop="cateId" title="商品类别" ext-class="">
+                <picker data-field="cateId" mode="selector" range="{{selGoodsCateItems}}" bindchange="handleChangeGoodsCate">
+                    <view class="weui-input" style="color:#808080">{{cateName}}</view>
+                </picker>
+            </mp-cell>
+            <mp-cell prop="goodsStock" title="售卖数量">
+                <input name="goodsStock" type="number" data-field="goodsStock" class="weui-input" placeholder="请输入售卖数量" />
+            </mp-cell>
+            <mp-cell prop="goodsPrice" title="商品价格">
+                <view style="display:flex; align-items: center;">
+                    $
+                    <input name="goodsPrice" type="digit" data-field="goodsPrice" placeholder="请输入商品价格" />
+                </view>
+            </mp-cell>
+        </mp-cells>
+        <view class="weui-cells__title">选择联系方式</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" style="height:56px">
+                <view class="weui-cell__hd" style="width: 105px">
+                    <picker name="contactType" bindchange="handleContactTypeChange" value="{{contactTypesIndex}}" range="{{contactType}}" data-field="contactType">
+                        <view class="myui-select">
+                            <view class="contactTypeText">{{contactType[contactTypesIndex]}}</view>
+                            <view class="arrow_warp">
+                                <mp-icon icon="arrow" extClass="arrow" color="#999" size="{{12}}"></mp-icon>
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input name="contactInfo" class="weui-input" placeholder="请输入联系方式" />
+                </view>
+            </view>
+        </view>
+        <mp-cells title="商品详情">
+            <mp-cell prop="goodsDetail">
+                <textarea name="goodsDetail" bindinput="handleGoodsDetailChange" class="weui-textarea" value="{{goodsInfo.goodsDetail}}" placeholder="如：新旧程度 价格是否可议\n租房类信息可包括房屋位置，房租等" style="height: 5.5em" data-field="goodsDetail" maxlength="500" />
+                <view class="weui-textarea-counter">{{goodsDetail.length}}/500</view>
+            </mp-cell>
+        </mp-cells>
+        <label class="weui-agree" for="weuiAgree">
+            <view class="weui-agree__text">
+                <!-- <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" /> -->
+                <view class="weui-agree__checkbox-icon">
+                    <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                </view>
+                阅读
+                <view bindtap="handleTapReadRule" class="rule_name" hover-class="view_hover" hover-stay-time="150">
+                    《用户上传商品管理办法》
+                </view>
+            </view>
+        </label>
+        <view hidden="{{!showRule}}" class="rule">
+            <view class="content">1. 用户上传的商品将按照提交审核的时间在商店内进行排序，提交时间越早排序越靠前</view>
+            <view class="content">2. 用户可以修改并提交处于"审核中"状态的商品信息</view>
+            <view class="content">3. 上传的商品在审核通过后将不能再进行修改。如确有需要进行修改请先删除该商品后重新发布</view>
+            <view class="content">4. 过审的商品将于过审日起30天后自动删除</view>
+            <view class="content">5. 单个用户最多可以同时发布100条商品信息</view>
+        </view>
+        <view>
+            <button form-type="submit" class="save_btn">保存发布</button>
+        </view>
+    </form>
+</mp-form>

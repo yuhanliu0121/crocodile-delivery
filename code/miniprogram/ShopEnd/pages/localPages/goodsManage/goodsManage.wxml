@@ -1,0 +1,53 @@
+<view class="cates">
+    <view class="cates_container">
+        <!-- 左侧菜单 -->
+        <scroll-view scroll-y="{{true}}" class="left_menu">
+            <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{leftMenuList}}" wx:key="cateId" bindtap="handleItemTap" data-index="{{index}}">
+                {{item.cateName}}
+            </view>
+        </scroll-view>
+        <!-- 右侧商品内容 -->
+        <scroll-view enable-back-to-top scroll-top="{{scrollTop}}" scroll-y="{{true}}" class="right_content" refresher-triggered="{{refreshFlag}}" refresher-enabled bindrefresherrefresh="handleRefresh">
+            <view class="goods_list">
+                <block wx:if="{{rightContent.length === 0}}">
+                    <view style="background-color: ##e4e4e4; height:90vh;width:100%; display:flex;justify-content: center;align-items: center;">
+                        <view style="color:#aeaeae">--- 该分类下暂无商品 ---</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="goods_item" wx:for="{{rightContent}}" wx:key="goodsId" >
+                        <view class="goods_info_warp" >
+                            <view class="goods_pic_warp">
+                                <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix"></image>
+                                <view wx:if="{{!item.goodsAvailable}}" class="mask">已下架</view>
+                            </view>
+                            <view class="goods_info_warp">
+                                <view class="goods_name">{{item.goodsName}}</view>
+                                <view class="goods_buy_limit">库存: {{item.goodsStock}}</view>
+                                <view class="bottom_warp">
+                                    <view class="goods_price">$ {{item.goodsPrice}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="operation_warp">
+                            <view wx:if="{{item.goodsAvailable}}" class="remove_btn" bindtap="tabRemove" data-index="{{index}}">
+                                下架
+                            </view>
+                            <view wx:if="{{!item.goodsAvailable}}" class="upload_btn" bindtap="tabUpload" data-index="{{index}}">
+                                上架
+                            </view>
+                            <view class="edit_btn" bind:tap="handleTapEdit" data-index="{{index}}">
+                                编辑
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class='btns'>
+    <view bindtap='onTapCategoryManage' class='categoryManage'>管理分类</view>
+    <view bindtap='onTapSortAndBatch' class='sortAndBatch'>排序&批量操作</view>
+    <view bindtap="onTapAddGoods" class='addGoods'>添加商品</view>
+</view>

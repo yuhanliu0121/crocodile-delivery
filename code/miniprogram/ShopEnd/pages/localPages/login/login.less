@@ -1,0 +1,114 @@
+.page_container {
+  .background_img {
+    // vertical-align: middle;是为了消除在view中嵌套一个image会产生的神秘空白
+    vertical-align: middle;
+    height: 100vh;
+    width: 100vw;
+  }
+  position: relative;
+  .login {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    .login_btn_warp {
+      // display: flex;
+      .owner_btn_warp {
+        flex: 1;
+        .btn_warp {
+          display: flex;
+          justify-content: center;
+          .login_btn_owner {
+            font-size: 30rpx;
+            width: 70%;
+          }
+        }
+
+        .reg_text_owner {
+          padding-top: 30rpx;
+          text-decoration: underline;
+          padding-bottom: 24px;
+          color: white;
+          text-align: center;
+          font-size: 25rpx;
+        }
+      }
+
+      .assistant_btn_warp {
+        flex: 1;
+        .btn_warp {
+          display: flex;
+          justify-content: center;
+          .login_btn_assist {
+            font-size: 30rpx;
+            width: 70%;
+          }
+        }
+
+        .reg_text_assist {
+          padding-top: 30rpx;
+          text-decoration: underline;
+          padding-bottom: 24px;
+          color: white;
+          text-align: center;
+          font-size: 25rpx;
+        }
+      }
+    }
+
+    .login_problem {
+      color: white;
+      text-align: center;
+      font-size: 30rpx;
+    }
+
+    .customer_service_btn_warp {
+      display: flex;
+      justify-content: center;
+      .customer_service_btn {
+        font-size: 30rpx;
+        width: 70%;
+        background-color: transparent;
+        // 去除button默认样式只留下文字
+        button::after {
+          border: none;
+        }
+        input {
+          outline: none;
+          border: none;
+          list-style: none;
+        }
+        color: white;
+      }
+    }
+  }
+}
+.sel_shops_dialog {
+  .item_warp {
+    // padding: 20rpx;
+    text-align: start;
+  }
+
+  // 改变radio默认样式: https://developers.weixin.qq.com/community/develop/doc/000c2ea5d60ff8d2c3f64fdc551000
+  radio .wx-radio-input.wx-radio-input-checked::before {
+    width: 15px;
+    height: 15px;
+    background-color: #0abc08;
+    border-radius: 50%;
+    content: "";
+    top: 50%;
+    left: 50%;
+  }
+  radio .wx-radio-input.wx-radio-input-checked {
+    background: white !important;
+  }
+}
+
+.input_dialog {
+  .input_warp {
+    margin-top: 30rpx;
+    border-bottom: 2rpx solid black;
+    .input_text {
+      text-align: start;
+    }
+  }
+}

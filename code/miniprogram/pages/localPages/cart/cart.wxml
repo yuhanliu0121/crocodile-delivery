@@ -1,0 +1,40 @@
+<wxs module="filters" src="../../../lib/calculate/calculate.wxs"></wxs>
+<block wx:if="{{!hasShopCart}}">
+    <view style="background-color: #e6e6e6; height:100vh;width:100vw; display:flex;justify-content: center;align-items: center;">
+        <view style="color:#aeaeae">--- 购物车空空如也哦~~ ---</view>
+        <!-- <image class="empty_image" src="https://s1.ax1x.com/2020/07/13/UJ1tDU.png" mode="widthFix"></image> -->
+    </view>
+</block>
+<block wx:else>
+    <view wx:for="{{allShopCart}}" wx:key="shopId" wx:for-index="index1" wx:for-item="shop" class="cart_content">
+        <navigator hover-class="none"  class="shop_title_warp" url="../shopDetail/shopDetail?shopId={{shop.shopId}}">
+            <view class="shop_title">
+                <view class="shop_title_text">{{shop.shopName}}</view>
+                <view class="iconfont icon-right_arrow"></view>
+            </view>
+            <view class="iconfont icon-trash_can" hover-class="view_hover" hover-stay-time="100" catchtap="handleClearShopCart" data-index="{{index1}}"></view>
+        </navigator>
+        <view class="goods_warp">
+            <view wx:for="{{shop.goods}}" wx:key="goodsId" wx:for-index="index2" wx:for-item="goods" class="goods_item_warp">
+                <view class="goods_pic_warp">
+                <image class="goods_pic" src="{{goods.goodsPicUrl}}" mode="widthFix"></image></view>
+                    <view class="goods_name_num">
+                        <view class="goods_name">{{goods.goodsName}}</view>
+                        <view class="goods_num">x{{goods.num}}</view>
+                    </view>
+                    <view class="goods_price">${{filters.toFix(goods.goodsPrice * goods.num)}}</view>
+            </view>
+        </view>
+        <view class="total_pay_warp">
+            <view class="pay_info">
+                <view class="total_price">
+                    合计:
+                    <text class="total_price_text">${{shop.totalPrice}}</text>
+                </view>
+                <view class="deliver_fee">不含配送费、服务费等</view>
+            </view>
+            <view wx:if="{{shop.totalPrice > shop.minConsumption}}" class="pay_btn active" bindtap="handlePay" data-index="{{index1}}">结算</view>
+            <view wx:else class="pay_btn inactive">未达起送消费</view>
+        </view>
+    </view>
+</block>

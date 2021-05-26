@@ -1,0 +1,39 @@
+<view class="item-wrap" style="height: {{ itemWrapHeight }}px;">
+	<view
+		class="item {{cur == index ? 'cur':''}} {{curZ == index ? 'zIndex':''}} {{itemTransition && index !== cur ? 'itemTransition':''}} {{item.fixed ? 'fixed' : ''}}"
+		wx:for="{{list}}"
+		wx:key="id"
+		data-key="{{item.sortKey}}"
+		data-index="{{index}}"
+		style="transform: translate3d({{index === cur ? tranX + 'px' : item.tranX}}, {{index === cur ? tranY + 'px' : item.tranY}}, 0);width: {{100 / columns}}%"
+		bind:longpress="longPress"
+		catch:touchmove="{{dragging?'touchMove':''}}"
+		catch:touchend="{{dragging?'touchEnd':''}}">
+
+		<!-- start:请在该区域编写自己的渲染逻辑 -->
+		<mp-slideview buttons="{{slidButton}}" bindbuttontap="deleteCategory" data-key="{{item.sortKey}}" data-index="{{index}}"  class="cell">
+		<view class="goods_info_warp">
+          <view class="goods_pic_warp">
+            <image class="goods_pic" src="{{item.data.goodsPicUrl}}" mode="widthFix"></image>
+                <view wx:if="{{!item.data.goodsAvailable}}" class="mask">已下架</view>
+          </view>
+          <view class="goods_info_warp">
+            <view class="goods_name">{{item.data.goodsName}}</view>
+              <view class="goods_buy_limit">库存: {{item.data.goodsStock}}</view>
+              <view class="bottom_warp">
+                <view class="goods_price">$ {{item.data.goodsPrice}}</view>
+              </view>
+          </view>
+        </view>
+				<view class="checkbox" wx:if="{{item.data.checkAble & item.data.checked}}" bindtap="onTabUncheck" data-key="{{item.sortKey}}"
+		data-index="{{index}}">
+                    <mp-icon icon="done" color="#00b26a" size="{{25}}"></mp-icon>
+		
+		</view>
+				<view class="checkbox" wx:if="{{item.data.checkAble & !item.data.checked}}" bindtap="onTabCheck" data-key="{{item.sortKey}}"
+		data-index="{{index}}"></view>
+			</mp-slideview>
+		<!-- end:请在该区域编写自己的渲染逻辑 -->
+
+	</view>
+</view>

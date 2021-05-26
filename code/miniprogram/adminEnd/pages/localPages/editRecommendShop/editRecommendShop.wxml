@@ -1,0 +1,19 @@
+<view class="page">
+    <view class="page__bd">
+        <view wx:for="{{slideButtons}}" wx:key="loopId" class="assist_item" bindtap="handleTapShop" data-index = "{{index}}" hover-class="view_hover" hover-stay-time="100">
+            <mp-slideview buttons="{{item.button}}" bindbuttontap="slideButtonTap" data-index="{{index}}">
+                <mp-cell value="{{item.shopName}}" footer="{{item.shopRank}}"></mp-cell>
+            </mp-slideview>
+        </view>
+    </view>
+</view>
+
+<!-- 选择对商店进行操作的action sheet -->
+<mp-actionSheet bindactiontap="handleTapActionSheetItem" show="{{showActionsheet}}" actions="{{actionsOnShop}}" title="请选择要进行的操作"></mp-actionSheet>
+
+<!-- 带输入框的对话框 -->
+<mp-dialog title="请输入新的商店排序数值" ext-class="input_dialog" mask="true" show="{{openInputDialog}}" mask-closable="{{true}}" bindbuttontap="handleTapInputDialogButton" buttons="{{buttons}}">
+  <view class="input_warp">
+    <input class="input_text" type="text" placeholder="新的商店数值（越高越靠前）" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" value="{{dialogInputText}}" maxlength="10"/>
+  </view>
+</mp-dialog>

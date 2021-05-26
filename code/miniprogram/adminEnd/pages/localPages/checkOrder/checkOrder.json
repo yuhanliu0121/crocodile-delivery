@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Order": "../../../components/Order/Order"
+  }
+}

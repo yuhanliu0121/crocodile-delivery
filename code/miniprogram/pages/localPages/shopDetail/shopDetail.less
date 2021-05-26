@@ -1,0 +1,248 @@
+.cates {
+  height: 100%;
+  .cates_container {
+    /* less中使用calc的时候要注意 */
+    height: ~"calc( 100vh - 90rpx )";
+    display: flex;
+    .left_menu {
+      /* 子项 高度 100% flex */
+      flex: 2;
+      background-color: #f7f6f7;
+      box-shadow: 5rpx 0rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+      .menu_item {
+        height: 80rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25rpx;
+      }
+      .active {
+        color: var(--themeColor);
+        border-left: 5rpx solid currentColor;
+      }
+    }
+    .right_content {
+      background-color: white;
+      /* 子项 高度 100% flex */
+      flex: 5; 
+      .goods_list {
+        .goods_item {
+          padding: 0 30rpx;
+          .goods_info_warp {
+            position: relative;
+            padding: 15rpx 0;
+            background-color: white;
+            display: flex;
+            border-bottom: 3rpx solid #f6f6f6;
+            .goods_pic_warp {
+              .goods_pic {
+                width: 150rpx;
+                height: 150rpx;
+                flex: none;
+              }
+              .mask {
+                width: 150rpx;
+                height: 150rpx;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 10;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+
+            .goods_basic_info_warp {
+              width: 65%;
+              margin-left: 15rpx;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              .goods_name {
+                font-size: 25rpx;
+                font-weight: bold;
+                // 为了保证单行省略正常渲染，该元素的width必须指定
+                width: 350rpx;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+              .goods_stock {
+                font-size: 20rpx;
+                color: #666;
+              }
+              .goods_buy_limit {
+                font-size: 20rpx;
+                color: #666;
+              }
+              .goods_buy_least_limit {
+                font-size: 20rpx;
+                color: #666;
+              }
+              
+
+              .bottom_warp {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .goods_price {
+                  flex: 1.2;
+                  font-size: 30rpx;
+                  color: var(--themeColor);
+                }
+                .operation_warp {
+                  flex: 1;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  .reduce_btn {
+                    width: 45rpx;
+                    height: 45rpx;
+
+                    font-size: 40rpx;
+                    color: white;
+
+                    text-align: center; //水平居中
+                    line-height: 45rpx; //跟高度一样
+
+                    background-color: var(--themeColor);
+                    border-radius: 100%;
+                    box-shadow: 5rpx 5rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+                  }
+                  .goodsNum {
+                    // 若此方案不兼容某些机型，尝试transform
+                    margin-left: auto;
+                  }
+                  .add_btn {
+                    margin-left: auto;
+                    width: 45rpx;
+                    height: 45rpx;
+
+                    font-size: 40rpx;
+                    color: white;
+
+                    text-align: center; //水平居中
+                    line-height: 45rpx; //跟高度一样以保证"+"是垂直居中的
+
+                    background-color: var(--themeColor);
+                    border-radius: 100%;
+                    box-shadow: 5rpx 5rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .cart_window {
+//   .cart_title_warp {
+//     display: flex;
+//     padding: 30rpx;
+//     justify-content: space-between;
+//     .cart_title_text {
+//       font-size: 30rpx;
+//       font-weight: bold;
+//     }
+//     .iconfont.icon-trash_can {
+//       font-size: 35rpx;
+//       color: var(--themeColor);
+//     }
+//   }
+//   .cart_window_content {
+//     .goods_item {
+//       padding: 0 30rpx;
+//       .goods_info_warp {
+//         position: relative;
+//         padding: 15rpx 0;
+//         background-color: white;
+//         display: flex;
+//         border-bottom: 3rpx solid #f6f6f6;
+//         .goods_pic_warp {
+//           .goods_pic {
+//             width: 150rpx;
+//             height: 150rpx;
+//             flex: none;
+//           }
+//         }
+
+//         .goods_basic_info_warp {
+//           width: 100%;
+//           margin-left: 15rpx;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: space-between;
+//           .goods_name {
+//             font-size: 25rpx;
+//             font-weight: bold;
+//             // 为了保证单行省略正常渲染，该元素的width必须指定
+//             width: 350rpx;
+//             overflow: hidden;
+//             white-space: nowrap;
+//             text-overflow: ellipsis;
+//           }
+
+//           .bottom_warp {
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+//             .goods_price {
+//               flex: 1.2;
+//               font-size: 30rpx;
+//               color: var(--themeColor);
+//             }
+//             .operation_warp {
+//               padding-right: 35rpx;
+//               flex: 1;
+//               display: flex;
+//               justify-content: space-between;
+//               align-items: center;
+
+//               .reduce_btn {
+//                 width: 45rpx;
+//                 height: 45rpx;
+
+//                 font-size: 40rpx;
+//                 color: white;
+
+//                 text-align: center; //水平居中
+//                 line-height: 45rpx; //跟高度一样
+
+//                 background-color: var(--themeColor);
+//                 border-radius: 100%;
+//                 box-shadow: 5rpx 5rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+//               }
+//               .goodsNum {
+//                 // 若此方案不兼容某些机型，尝试transform
+//                 margin-left: auto;
+//               }
+//               .add_btn {
+//                 margin-left: auto;
+//                 width: 45rpx;
+//                 height: 45rpx;
+
+//                 font-size: 40rpx;
+//                 color: white;
+
+//                 text-align: center; //水平居中
+//                 line-height: 45rpx; //跟高度一样以保证"+"是垂直居中的
+
+//                 background-color: var(--themeColor);
+//                 border-radius: 100%;
+//                 box-shadow: 5rpx 5rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

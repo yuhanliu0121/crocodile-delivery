@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "actionsheet": "../../../components/actionsheet/actionsheet",
+    "mp-tabs":"../../../components/tabs/index"
+  },
+  "navigationBarTitleText":"确认订单"
+
+}

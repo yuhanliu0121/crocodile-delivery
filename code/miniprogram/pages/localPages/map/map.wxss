@@ -1,0 +1,78 @@
+.search_bar {
+  margin: 15rpx;
+  height: 6vh;
+  display: flex;
+  border-radius: 15rpx;
+}
+.search_bar input {
+  background-color: #fff;
+  flex: 1;
+  height: 100%;
+  padding-left: 30rpx;
+  border-radius: 15rpx;
+}
+.search_bar button {
+  width: 110rpx;
+  height: 100%;
+  padding: 0;
+  margin: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  background-color: var(--themeColor);
+  color: white;
+}
+.the_map {
+  width: 100%;
+  height: 46vh;
+  position: relative;
+}
+.the_map .location_marker {
+  width: 54rpx;
+  height: 54rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.address_suggestion_container {
+  width: 96%;
+  margin: 2%;
+  border-radius: 15rpx;
+  background-color: white;
+}
+.address_suggestion_container .address_suggestion_item {
+  padding: 15rpx;
+  border-bottom: 3rpx solid #f0eef4;
+}
+.address_suggestion_container .address_suggestion_item .address_title {
+  text-align: start;
+}
+.address_suggestion_container .address_suggestion_item .address_detail {
+  font-size: 12px;
+  color: #666;
+  text-align: start;
+}
+.available_addr {
+  height: 48vh;
+  background-color: white;
+}
+.available_addr .address_suggestion_item {
+  padding: 25rpx;
+  border-bottom: 3rpx solid #f0eef4;
+}
+.available_addr .address_suggestion_item .address_title {
+  text-align: start;
+  font-size: 30rpx;
+}
+.available_addr .address_suggestion_item .address_title_select {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  font-weight: bolder;
+}
+.available_addr .address_suggestion_item .address_detail {
+  font-size: 12px;
+  color: #666;
+  text-align: start;
+}

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "mp-dialog": "../../../components/dialog/dialog",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
+    "mp-slideview": "../../../components/slideview/slideview",
+    "mp-actionSheet": "../../../components/actionsheet/actionsheet"
+  },
+  "navigationBarTitleText":"店员管理",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle": "dark"
+}

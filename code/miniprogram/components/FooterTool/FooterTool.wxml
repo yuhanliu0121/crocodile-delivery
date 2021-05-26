@@ -1,0 +1,16 @@
+<!-- <wxs module="filters" src="../../lib/calculate/calculate.wxs"></wxs> -->
+<view class="footer_tool">
+    <view class="total_price_warp">
+        <view bindtap="handleCartTap" class="iconfont icon-cart {{totalNum !== 0?'active':''}}">
+            <view hidden="{{totalNum === 0}}" class="total_num">{{totalNum > 99?"99+":totalNum}}</view>
+        </view>
+        <view class="total_price_title">合计：</view>
+        <!-- <view class="total_price_text">${{filters.toFix(totalPrice)}}</view> -->
+        <view class="total_price_text">${{totalPrice}}</view>
+    </view> 
+    <view wx:if="{{isCheckOutActive}}" class="check_out_btn active" bindtap="handleCheckOutTap">
+        结算
+    </view>
+    <!-- <view wx:else class="check_out_btn">还差${{filters.toFix(checkOutConsumption)}}起送</view> -->
+    <view wx:else class="check_out_btn">还差${{checkOutConsumption}}起送</view>
+</view>

@@ -1,0 +1,13 @@
+<mp-cells title="客户端管理">
+  <mp-cell link hover url="../editSwiper/editSwiper" value="设置首页轮播图"></mp-cell>
+  <mp-cell link hover url="../editRecommendShop/editRecommendShop" value="设置推荐商店"></mp-cell>
+  <mp-cell link hover url="../ugGoodsManage/ugGoodsManage?shopId=XauzkdyMJjf9qs" value="管理自营店"></mp-cell>
+  <mp-cell link hover url="../checkOrder/checkOrder" value="查看订单"></mp-cell>
+</mp-cells>
+<mp-cells title="商家端管理">
+  <mp-cell hover value="生成商店注册码" bindtap="handleGenerateOwnerRegistCode"></mp-cell>
+  <mp-cell link hover url="../deleteShop/deleteShop" value="删除商店"></mp-cell>
+</mp-cells>
+<mp-cells title="系统">
+  <mp-cell link hover url="../../../../pages/localPages/selAppEnd/selAppEnd" value="登出管理端"></mp-cell>
+</mp-cells>

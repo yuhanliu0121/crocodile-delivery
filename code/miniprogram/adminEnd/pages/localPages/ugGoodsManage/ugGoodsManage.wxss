@@ -1,0 +1,180 @@
+page {
+  height: 100%;
+  background-color: white;
+}
+.cates {
+  height: 100%;
+}
+.cates .cates_container {
+  /* less中使用calc的时候要注意 */
+  height: calc( 100vh - 90rpx );
+  display: flex;
+}
+.cates .cates_container .left_menu {
+  /* 子项 高度 100% flex */
+  flex: 2;
+  background-color: #f7f6f7;
+  min-width: 214rpx;
+  box-shadow: 5rpx 0rpx 8rpx 1rpx rgba(0, 0, 0, 0.164);
+}
+.cates .cates_container .left_menu .menu_item {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+}
+.cates .cates_container .left_menu .active {
+  color: var(--themeColor);
+  border-left: 10rpx solid currentColor;
+}
+.cates .cates_container .right_content {
+  /* 子项 高度 100% flex */
+  flex: 5;
+  max-width: 536rpx;
+}
+.cates .cates_container .right_content .goods_list {
+  padding-bottom: 60rpx;
+}
+.cates .cates_container .right_content .goods_list .goods_item {
+  border-bottom: 3rpx solid #e6e6e6;
+  padding: 25rpx;
+  padding-left: 30rpx;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp {
+  position: relative;
+  padding: 8rpx 0;
+  background-color: white;
+  display: flex;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_pic_warp .goods_pic {
+  width: 150rpx;
+  height: 150rpx;
+  flex: none;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_pic_warp .mask {
+  width: 150rpx;
+  height: 150rpx;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_info_warp {
+  width: 65%;
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_info_warp .goods_name {
+  font-size: 25rpx;
+  font-weight: bold;
+  width: 350rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_info_warp .goods_buy_limit {
+  font-size: 20rpx;
+  color: #666;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_info_warp .bottom_warp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.cates .cates_container .right_content .goods_list .goods_item .goods_info_warp .goods_info_warp .bottom_warp .goods_price {
+  flex: 1.2;
+  font-size: 30rpx;
+  color: var(--themeColor);
+}
+.cates .cates_container .right_content .goods_list .goods_item .operation_warp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+.cates .cates_container .right_content .goods_list .goods_item .operation_warp .remove_btn {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47%;
+  height: 70%;
+  color: var(--themeColor);
+  background-color: white;
+  border-radius: 10rpx;
+  border: 3rpx solid var(--themeColor);
+}
+.cates .cates_container .right_content .goods_list .goods_item .operation_warp .upload_btn {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47%;
+  height: 70%;
+  color: white;
+  background-color: var(--themeColor);
+  border-radius: 10rpx;
+}
+.cates .cates_container .right_content .goods_list .goods_item .operation_warp .edit_btn {
+  margin-left: 15rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47%;
+  height: 70%;
+  color: var(--themeColor);
+  background-color: white;
+  border-radius: 10rpx;
+  border: 3rpx solid var(--themeColor);
+}
+.btns {
+  border-top: 1rpx solid #ccc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+  display: flex;
+}
+.btns .categoryManage {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.btns .sortAndBatch {
+  background-color: var(--themeColor);
+  flex: 2.5;
+  color: white;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns .addGoods {
+  background-color: #5b9bca;
+  color: white;
+  flex: 2.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.view_hover {
+  background: #dedede;
+}

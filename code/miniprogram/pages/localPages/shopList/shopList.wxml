@@ -1,0 +1,5 @@
+<block wx:for="{{shopList}}" wx:key="shopId">
+    <navigator url="/pages/localPages/shopDetail/shopDetail?shopId={{item.shopId}}">
+        <ShopCard shopInfo="{{item}}"></ShopCard>
+    </navigator>
+</block>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Order":"../../../components/Order/Order",
+    "mp-tabs":"../../../components/tabs/index",
+    "InputDialog":"../../../components/InputDialog/InputDialog"
+  },
+  "navigationBarTitleText":"我的订单"
+}

@@ -1,0 +1,88 @@
+<wxs module="filters" src="../../lib/calculate/calculate.wxs"></wxs>
+<wxs module="toLocalTime" src="../../lib/goods/toLocalTime.wxs"></wxs>
+<wxs module="orderFilters" src="../../lib/order/operations.wxs"></wxs>
+<view class="order_content">
+    <!-- 订单基础信息: 单号，顾客名，电话，地址 -->
+    <view class="shop_name">{{orderDetail.shopName}}</view>
+    <view class="order_status_info">
+        <view class="status_title">订单状态</view>
+        <view class="order_status">{{orderFilters.getStatusText(orderDetail.status)}}</view>
+        <view wx:if="{{orderDetail.status==-1}}" class="cancel_reason">
+            取消原因: {{orderDetail.cancelReason}}
+        </view>
+        <view wx:if="{{orderDetail.status === 0}}" class="cancel_order_btn" bindtap="handleTapCancelOrder" hover-class="view_hover" hover-stay-time="100">
+            取消订单
+        </view>
+    </view>
+    <view class="basic_info">
+        <view class="user_info_row">
+            <view bindtap="handleTapUserInfo" class="user_info_title_warp" hover-class="view_hover" hover-stay-time="100">
+                <view class="info_title">收货信息</view>
+                <view class="iconfont icon-xia {{isShowUserInfoDetail?'up':''}}"></view>
+            </view>
+            <view hidden="{{!isShowUserInfoDetail}}">
+                <view class="user_address">
+                    {{orderDetail.street}}, {{orderDetail.city}}, {{orderDetail.state}}, {{orderDetail.zipcode}}
+                </view>
+                <view class="user_info">
+                    <text class="user_name">{{orderDetail.receiverName}}</text>
+                    <text class="user_phone">{{orderDetail.phoneNumber}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="goods">
+        <view bindtap="handleTapGoodsDetail" class="goods_title_warp" hover-class="view_hover" hover-stay-time="100">
+            <view class="goods_title">订单详情</view>
+            <view class="iconfont icon-xia {{isShowGoodsDetail?'up':''}}"></view>
+        </view>
+        <view hidden="{{!isShowGoodsDetail}}">
+            <view wx:for="{{orderDetail.validGoods}}" wx:key="goodsId" class="goods_item_warp">
+                <view class="goods_pic_warp">
+                    <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix"></image>
+                </view>
+                <view class="goods_name_num">
+                    <view class="goods_name">{{item.goodsName}}</view>
+                    <view class="goods_num">x{{item.num}}</view>
+                </view>
+                <view class="goods_price">${{filters.toFix(item.num * item.goodsPrice)}}</view>
+            </view>
+        </view>
+        <view hidden="{{!isShowGoodsDetail}}" class="fee">服务费: $ {{orderDetail.serviceFee}}</view>
+        <view hidden="{{!isShowGoodsDetail}}" class="fee">配送费: $ {{orderDetail.deliverFee}}</view>
+        <view class="total_price">总计: $ {{orderDetail.totalPrice}}</view>
+    </view>
+    <!-- 订单其他信息：下单时间，订单编号 -->
+    <view hidden="{{!isShowGoodsDetail}}">
+        <view class="other_info">
+            <view class="info_warp">
+                <view class="item note">订单备注: {{orderDetail.note}}</view>
+                <view class="item order_id">订单编号: {{orderDetail.orderId}}</view>
+                <view class="item createTime">
+                    创建时间: {{toLocalTime.formatTime(orderDetail.createTime)}}
+                </view>
+                <view class="item payTime">
+                    下单时间: {{toLocalTime.formatTime(orderDetail.payTime)}}
+                </view>
+                <view class="item selDeliverTime">
+                    预定配送时间: {{toLocalTime.formatTime(orderDetail.selDeliverTime)}}
+                </view>
+                <view wx:if="{{orderDetail.deliverTime}}" class="item deliverTime">
+                    实际配送时间: {{toLocalTime.formatTime(orderDetail.deliverTime)}}
+                </view>
+                <view wx:if="{{orderDetail.completeTime}}" class="item completeTime">
+                    {{orderDetail.status===-1?'取消时间':'送达时间'}}: {{toLocalTime.formatTime(orderDetail.completeTime)}}
+                </view>
+            </view>
+            <button bindtap="handleTapCopyInfo" class="copy_btn" hover-class="view_hover" hover-stay-time="150">
+                复制
+            </button>
+        </view>
+    </view>
+    <!-- 联系商家按钮 -->
+    <view class="contact_shop" bind:tap="handleTapTel">
+        <text class="iconfont icon-dianhua"></text>
+        联系商家
+    </view>
+</view>

@@ -1,0 +1,118 @@
+<wxs module="toLocalTime" src="../../../lib/goods/toLocalTime.wxs" module="filters"></wxs>
+<view class="cates">
+    <view class="cates_container">
+        <!-- 右侧商品内容 -->
+        <view class="goods_list">
+            <block wx:if="{{allGoods.length === 0}}">
+                <view style="background-color: ##e4e4e4; height:90vh;width:100%; display:flex;justify-content: center;align-items: center;">
+                    <view style="color:#aeaeae">--- 没有待审核商品 ---</view>
+                    <view style="color:blue; text-decoration:underline; padding-top:15rpx" bindtap="handleTapRefresh">
+                        点击刷新
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="goods_item" wx:for="{{allGoods}}" wx:key="goodsId" bindtap="handleTapItem" hover-class="view_hover" hover-stay-time="150" data-index="{{index}}">
+                    <view class="goods_overview">
+                        <view class="goods_info_warp">
+                            <view class="goods_pic_warp">
+                                <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix" catch:tap="handlePreviewImg" data-src="{{item.goodsPicUrl}}"></image>
+                            </view>
+                            <view class="goods_basic_info_warp">
+                                <view class="goods_name">{{item.goodsName}}</view>
+                                <view class="goods_stock">数量: {{item.goodsStock}}</view>
+                                <view class="bottom_warp">
+                                    <view class="goods_price">$ {{item.goodsPrice}}</view>
+                                </view>
+                            </view>
+                            <view wx:if="{{item.status === 0}}" class="goods_status under_censor">
+                                审核中
+                            </view>
+                            <view wx:elif="{{item.status === 1}}" class="goods_status pass">
+                                通过审核
+                            </view>
+                            <view wx:elif="{{item.status === 2}}" class="goods_status reject">
+                                审核不通过
+                            </view>
+                            <view class="time_info_warp">
+                                <view class="create_time">
+                                    创建时间：{{filters.formatDate(item.watermark)}}
+                                </view>
+                                <view class="censor_time" wx:if="{{item.passTime !== 0}}" class="censor_time">
+                                    过审时间：{{filters.formatDate(item.passTime)}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view hidden="{{hideDetail[index]}}" class="goods_detail">
+                        <view class="reject_reason" wx:if="{{item.rejectReason}}">
+                            上次审核未过审 原因：{{item.rejectReason}}
+                        </view>
+                        <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+                            <form bindsubmit="handleSaveGoods">
+                                <mp-cells>
+                                    <mp-cell prop="goodsName" title="商品名称">
+                                        <input disabled="{{true}}" value="{{item.goodsName}}" name="goodsName" class="weui-input" data-field="goodsName" placeholder="请输入商品名称" maxlength="30" />
+                                    </mp-cell>
+                                    <mp-cell prop="cateId" title="商品类别" ext-class="">
+                                        <picker disabled="{{true}}" data-field="cateId" mode="selector" range="{{selGoodsCateItems}}" bindchange="handleChangeGoodsCate">
+                                            <view class="weui-input" style="color:#808080">
+                                                {{item.cateName}}
+                                            </view>
+                                        </picker>
+                                    </mp-cell>
+                                    <mp-cell prop="goodsStock" title="售卖数量">
+                                        <input disabled="{{true}}" value="{{item.goodsStock}}" name="goodsStock" type="number" data-field="goodsStock" class="weui-input" placeholder="请输入售卖数量" />
+                                    </mp-cell>
+                                    <mp-cell prop="goodsPrice" title="商品价格">
+                                        <view style="display:flex; align-items: center;">
+                                            $
+                                            <input disabled="{{true}}" value="{{item.goodsPrice}}" name="goodsPrice" type="digit" data-field="goodsPrice" placeholder="请输入商品价格" />
+                                        </view>
+                                    </mp-cell>
+                                    <view class="weui-cells__title">选择联系方式</view>
+                                    <view class="weui-cells weui-cells_after-title">
+                                        <view class="weui-cell weui-cell_select">
+                                            <view class="weui-cell__hd" style="width: 105px">
+                                                <picker disabled="{{true}}" name="contactType" bindchange="handleContactTypeChange" value="{{contactTypesIndex}}" range="{{contactType}}" data-field="contactType">
+                                                    <view class="weui-select">
+                                                        {{contactTypeText[item.contactType]}}
+                                                    </view>
+                                                </picker>
+                                            </view>
+                                            <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                                                <input disabled="{{true}}" value="{{item.contactInfo}}" name="contactInfo" class="weui-input" placeholder="请输入联系方式" />
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <mp-cells title="商品详情">
+                                        <mp-cell prop="goodsDetail">
+                                            <textarea disabled="{{true}}" value="{{item.goodsDetail}}" name="goodsDetail" bindinput="handleGoodsDetailChange" class="weui-textarea" placeholder="如：新旧程度 价格是否可议\n租房类信息可包括房屋位置，房租等" style="height: 5.5em" data-field="goodsDetail" maxlength="500" />
+                                            <view class="weui-textarea-counter">
+                                                {{item.goodsDetail.length}}/500
+                                            </view>
+                                        </mp-cell>
+                                    </mp-cells>
+                                </mp-cells>
+                                <view class="bottom_btm">
+                                    <view class="delete_btm" catchtap="handleTapRejectBtn" data-index="{{index}}">
+                                        不通过
+                                    </view>
+                                    <button catchtap="handleTapPassBtn" class="save_btm" data-index="{{index}}">
+                                        通过
+                                    </button>
+                                </view>
+                            </form>
+                        </mp-form>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<!-- 输入店铺认证码对话框 -->
+<mp-dialog title="拒绝理由" ext-class="input_dialog" mask="true" show="{{openInputDialog}}" mask-closable="{{true}}" bindbuttontap="handleTapInputDialogButton" buttons="{{buttons}}">
+    <view class="input_warp">
+        <input class="input_text" type="text" placeholder="请输入拒绝理由" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" value="{{dialogInputText}}" />
+    </view>
+</mp-dialog>

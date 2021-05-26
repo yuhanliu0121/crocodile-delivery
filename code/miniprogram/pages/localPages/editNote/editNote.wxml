@@ -1,0 +1,18 @@
+<mp-cells title="订单备注">
+    <mp-cell>
+        <textarea 
+        class="weui-textarea" 
+        value="{{note}}" 
+        placeholder="商超购物备注如：如果没有老干妈请换成老干爹 餐厅外送备注如：辣子鸡不要鸡" 
+        style="height: 8.3em" 
+        bindinput="handleInputeNote" 
+        data-field="note" 
+        maxlength="500" />
+        <view class="weui-textarea-counter">{{note.length}}/500</view>
+    </mp-cell>
+</mp-cells>
+
+<view class="edit_btn_warp">
+    <view class="my_save_btn" bindtap="handleTapDiscard">清空备注</view>
+    <view class="my_save_btn" bindtap="handleSaveNote">保存备注</view>
+</view>

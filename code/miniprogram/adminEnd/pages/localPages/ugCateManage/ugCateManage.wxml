@@ -1,0 +1,51 @@
+<view>
+<drag class="drag_container" id="drag"
+			bind:click="itemClick"
+			bind:change="change"
+			bind:sortend="sortEnd"
+			bind:scroll="scroll"
+			bind:edit="editCategory"
+			bind:delete="deleteCategory"
+			list-data="{{listData}}"
+			columns="{{size}}"
+			scroll-top="{{scrollTop}}"
+			top-size="110"
+			bottom-size="{{isIphoneX ? 380 : 300 }}">
+</drag>
+</view>
+
+	<view  wx:if="{{!editable}}" class="bottom_btn" >
+			<view class="sort_cate" bindtap="tabSort">分类排序</view>
+		<view class="add_cate" bindtap="tabAdd"> 添加分类</view>
+	</view>
+
+	<view  wx:if="{{editable}}" class="btm_tool" bindtap="save">
+	<view class="tool_item btm_save">
+		<view class="item_name"> 保存排序</view>
+	</view>
+	</view>
+
+
+<!-- <view>
+  <modal title="添加分类" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+	<input hidden="{{add_tab}}" style='margin:20rpx auto' type="string" placeholder="请输入分类名称" bindinput='addInput' value='{{add_value}}' cursor-spacing='{{space}}' focus='{{focusValue}}' />
+    {{data.showWindows.Content}}
+  </modal>
+</view> -->
+
+<!-- 选择对商品类别进行操作的action sheet -->
+<mp-actionSheet bindactiontap="handleTapActionSheetItem" show="{{showActionsheet}}" actions="{{actionsOnCate}}" title="请选择要进行的操作"></mp-actionSheet>
+
+<!-- 带输入框的对话框 -->
+<mp-dialog title="请输入新的类别名称" ext-class="input_dialog" mask="true" show="{{openInputDialog}}" mask-closable="{{true}}" bindbuttontap="handleTapInputDialogButton" buttons="{{buttons}}">
+  <view class="input_warp">
+    <input class="input_text" type="text" placeholder="新的类别名称" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" value="{{dialogInputText}}" maxlength="10"/>
+  </view>
+</mp-dialog>
+
+<!-- 添加新的类别名称对话框 -->
+<mp-dialog title="请输入新的类别名称" ext-class="input_dialog" mask="true" show="{{!modalHidden}}" mask-closable="{{true}}" bindbuttontap="modalBindaconfirm" buttons="{{buttons}}">
+  <view class="input_warp">
+    <input class="input_text" type="text" placeholder="新的类别名称" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="addInput" value="{{add_Info}}" maxlength="10"/>
+  </view>
+</mp-dialog>

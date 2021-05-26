@@ -1,0 +1,53 @@
+.address_item {
+  border-bottom: 4rpx solid #f6f6f6;
+  background-color: white;
+  padding: 30rpx 30rpx 40rpx 25rpx;
+  position: relative;
+
+  .address_info {
+    .addres_text {
+      width: 90%;
+      font-size: 30rpx;
+      font-weight: bold;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .name_phone {
+      margin-top: 20rpx;
+      color: #9b9b9b;
+      font-size: 30rpx;
+
+      .phone_num {
+        margin-left: 15rpx;
+      }
+    }
+  }
+
+  .iconfont.icon-edit {
+    position: absolute;
+    right: 5%;
+    top: 25%;
+    font-size: 50rpx;
+    color: #c4c4c4;
+  }
+}
+.add_address_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50rpx auto;
+  width: 70%;
+  height: 80rpx;
+  // background-color: burlywood;
+  background-color: var(--themeColor);
+  color: white;
+  border-radius: 98rpx;
+  border-color: var(--themeColor);
+  font-size: 39rpx;
+  font-weight: 600;
+  // background: linear-gradient(to bottom right, #1dcd69, #32acad);
+  box-shadow: 5rpx 5rpx 10rpx 10rpx rgba(0, 0, 0, 0.164);
+}

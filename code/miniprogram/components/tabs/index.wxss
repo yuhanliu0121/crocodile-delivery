@@ -1,0 +1,25 @@
+.weui-tabs {
+  width: 100%;
+}
+.weui-tabs-bar__wrp {
+  width: 100%;
+  background: #fff;
+}
+.weui-tabs-bar__content {
+  width: 100%;
+  white-space: nowrap;
+  display: flex; /*原本没有这一行*/
+}
+.weui-tabs-bar__item {
+  display: inline-block;
+  flex: 1; /*原本没有这一行*/
+  display: flex;/*原本没有这一行*/
+  justify-content: center;/*原本没有这一行*/
+  align-items: center;/*原本没有这一行*/
+}
+.weui-tabs-bar__title {
+  display: inline-block;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+}

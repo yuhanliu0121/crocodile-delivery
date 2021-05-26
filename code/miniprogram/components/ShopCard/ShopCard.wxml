@@ -1,0 +1,10 @@
+<view class="shop_warp">
+    <image class="shop_logo" src="{{shopInfo.logoUrl}}" mode="widthFix"></image>
+    <view class="shop_info">
+        <view class="shop_name">{{shopInfo.shopName}}</view>
+        <view wx:if="{{shopInfo.shopStatus===0}}" class="shop_status close" style="color:red">停业中</view>
+        <view wx:if="{{shopInfo.shopStatus===1}}" class="shop_status open" style="color:green">营业中</view>
+        <view class="min_consumption">起送: $<text class="min_consumption_price">{{shopInfo.minConsumption}}</text></view>
+        <!-- <view class="free_delivery_condition">满$100免费配送</view> -->
+    </view>
+</view>

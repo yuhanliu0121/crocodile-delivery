@@ -1,0 +1,10 @@
+<mp-cells>
+  <mp-cell link hover url="../goodsManage/goodsManage" value="商品管理"></mp-cell>
+  <mp-cell link hover url="../editShopAnnounce/editShopAnnounce" value="商店公告"></mp-cell>
+  <mp-cell link hover url="../checkOrder/checkOrder" value="历史订单"></mp-cell>
+  <mp-cell link hover url="../editDeliver/editDeliver" value="配送设置"></mp-cell>
+  <mp-cell link hover url="../editFee/editFee" value="服务费与配送费"></mp-cell>
+  <mp-cell link hover url="../editAssistant/editAssistant" value="店员管理"></mp-cell>
+  <mp-cell link hover url="../editShopOpenTime/editShopOpenTime" value="营业时间"></mp-cell>
+</mp-cells>
+<myTabbar current="{{1}}"></myTabbar>

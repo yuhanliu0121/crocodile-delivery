@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "drag":"../../../components/drag/index",
+    "mp-dialog": "../../../components/dialog/dialog",
+    "mp-actionSheet": "../../../components/actionsheet/actionsheet"
+  },
+  "navigationBarTitleText": "管理分类",
+  "backgroundColor": "#e2e2e2",
+  "backgroundTextStyle": "light"
+}

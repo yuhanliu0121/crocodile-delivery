@@ -1,0 +1,53 @@
+<view class="cart_content">
+    <view class="shop_title_warp">
+        <view class="shop_title">
+            <view class="shop_title_text">Hanna&Tiger Asian Mart 小卖部</view>
+            <view class="iconfont icon-right_arrow"></view>
+        </view>
+        <view class="iconfont icon-trash_can" hover-class="view_hover" hover-stay-time="100"></view>
+    </view>
+    <view class="goods_warp">
+        <view class="goods_item_warp">
+            <image class="goods_pic" src="https://hannatiger.com/wp-content/uploads/2020/07/麻辣烫-edit.jpg" mode="widthFix"></image>
+            <view class="goods_info">
+                <view class="goods_name_price">
+                    <view class="goods_name">短名字商品</view>
+                    <view class="goods_price">$9999.99</view>
+                </view>
+                <view class="goods_num">x5</view>
+            </view>
+        </view>
+        <view class="goods_item_warp">
+            <image class="goods_pic" src="https://hannatiger.com/wp-content/uploads/2020/07/麻辣烫-edit.jpg" mode="widthFix"></image>
+            <view class="goods_info">
+                <view class="goods_name_price">
+                    <view class="goods_name">海底捞Hi/清油麻辣烫底料/Spicy Hotpot Seasoning/220g</view>
+                    <view class="goods_price">$9999.99</view>
+                </view>
+                <view class="goods_num">x5</view>
+            </view>
+        </view>
+        <view class="goods_item_warp">
+            <image class="goods_pic" src="https://hannatiger.com/wp-content/uploads/2020/07/麻辣烫-edit.jpg" mode="widthFix"></image>
+            <view class="goods_info">
+                <view class="goods_name_price">
+                    <view class="goods_name">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, minus suscipit facilis doloremque nisi necessitatibus. Iste soluta commodi eaque. Fuga vero, nisi officiis omnis alias voluptatem tempore asperiores soluta velit?
+                    </view>
+                    <view class="goods_price">$9999.99</view>
+                </view>
+                <view class="goods_num">x999</view>
+            </view>
+        </view>
+    </view>
+    <view class="total_pay_warp">
+        <view class="pay_info">
+            <view class="total_price">
+                合计:
+                <text class="total_price_text">$9999.99</text>
+            </view>
+            <view class="deliver_fee">商品配送费: $9999.99</view>
+        </view>
+        <button class="pay_btn">结算</button>
+    </view>
+</view>

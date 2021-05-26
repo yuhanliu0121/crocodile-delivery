@@ -1,0 +1,5 @@
+<mp-dialog title="{{title}}" mask="true" show="{{show}}" mask-closable="{{true}}" bindbuttontap="handleTapInputDialogButton" bindclose="handleTapMask" buttons="{{buttons}}">
+  <view style="margin-top: 30rpx;border-bottom: 2rpx solid black;">
+    <input value="{{dialogInput}}" style="text-align: start;" type="{{type}}" placeholder="{{placeholder}}" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" maxlength="{{maxlength}}"/>
+  </view>
+</mp-dialog>

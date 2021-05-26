@@ -1,0 +1,37 @@
+<view class="page">
+    <!-- 没有店员页面 -->
+    <view wx:if="{{finishLoading && slideButtons.length === 0}}" style="background-color: #e6e6e6; height:100vh;width:100vw; display:flex; flex-direction:column; justify-content: center;align-items: center;">
+        <view style="color:#aeaeae">--- 店里还没有店员哦 ---</view>
+        <view style="color:blue; text-decoration:underline; padding-top:15rpx" bindtap="handleAddAssist">
+            点击添加店员
+        </view>
+    </view>
+    <!-- 店员展示 -->
+    <view wx:elif="{{finishLoading && slideButtons.length !== 0}}" wx: class="page__bd">
+        <view wx:for="{{slideButtons}}" wx:key="loopId" class="assist_item" bindtap="handleTapAssist" data-index = "{{index}}" hover-class="view_hover" hover-stay-time="100">
+            <mp-slideview buttons="{{item.button}}" bindbuttontap="slideButtonTap" data-index="{{index}}">
+                <mp-cell value="{{item.assistName}}" footer="店员"></mp-cell>
+            </mp-slideview>
+        </view>
+        <view class="add_assist_btn" bindtap="handleAddAssist">
+            + 添加店员
+        </view>
+    </view>
+</view>
+<mp-actionSheet bindactiontap="handleTapActionSheetItem" show="{{showActionsheet}}" actions="{{actionsOnAssist}}" title="请选择要对店员进行的操作"></mp-actionSheet>
+<!-- 修改店员名称操作框 -->
+<mp-dialog title="{{'请修改「'+actionOnAssistName+'」的备注'}}" ext-class="input_dialog" mask="true" show="{{openEditNoteNameDialog}}" bindbuttontap="handleTapEditNoteNameButton" buttons="{{buttons}}">
+    <view class="input_warp">
+        <input class="input_text" maxlength="30" type="text" placeholder="请输入新的店员名称" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" value="{{dialogInputText}}" />
+    </view>
+</mp-dialog>
+<!-- 修改店员权限操作框 -->
+<mp-dialog title="{{'请修改「'+actionOnAssistName+'」的权限'}}" mask="true" show="{{openEditAssistAuthDialog}}" bindbuttontap="handleTapEditAssistAuthButton" buttons="{{buttons}}">
+    <checkbox-group bindchange="handleAuthChange">
+        <label class="weui-cell weui-check__label" wx:for="{{assistAuthItem}}" wx:key="value">
+            <view class="item_warp">
+                <checkbox disabled="{{isAssist}}" checked="{{checkList[index]}}" value="{{item.value}}">{{item.text}}</checkbox>
+            </view>
+        </label>
+    </checkbox-group>
+</mp-dialog>

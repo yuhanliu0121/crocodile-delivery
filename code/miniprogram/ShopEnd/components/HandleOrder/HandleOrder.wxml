@@ -1,0 +1,74 @@
+<wxs module="filters" src="../../lib/calculate/toFix.wxs"></wxs>
+<view class="order_content">
+    <!-- 订单基础信息: 单号，顾客名，电话，地址 -->
+    <view class="basic_info">
+        <!-- <view class="order_num"># {{orderDetail.orderNum}}</view> -->
+        <view class="customer_name">{{orderDetail.receiverName}}</view>
+        <view class="customer_tel" bindtap="handleTapTel">
+            <text class="iconfont icon-dianhua"></text>
+            联系顾客
+        </view>
+        <view class="address">
+            <text user-select>{{orderDetail.street}}, {{orderDetail.city}}</text>
+        </view>
+        <view class="order_time_info">接受订单时间: {{filters.toTimeStr(orderDetail.handleTime)}}</view>
+        <view class="order_time_info">
+            预定配送时间: {{filters.toTimeStr(orderDetail.selDeliverTime)}}
+        </view>
+        <view class="cancel_order" bindtap="handleTapCancelOrder" hover-class="view_hover" hover-stay-time="100">
+            取消订单
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="goods">
+        <view bindtap="handleTapGoodsDetail" class="goods_title_warp" hover-class="view_hover" hover-stay-time="100">
+            <view class="goods_title">商品详情</view>
+            <view class="iconfont icon-xia {{isShowGoodsDetail?'up':''}}"></view>
+        </view>
+        <checkbox-group hidden="{{!isShowGoodsDetail}}" class="checkbox_group" bindchange="handelCheckBoxChange">
+            <checkbox wx:for="{{orderDetail.validGoods}}" wx:key="goodsId" class="checkbox_item" value="{{index}}" checked="{{filters.isContain(checkedBox,index)}}">
+                <view class="goods_item_warp">
+                    <view class="goods_pic_warp">
+                        <image class="goods_pic" src="{{item.goodsPicUrl}}" mode="widthFix" catchtap="handleTapImg" data-src="{{item.goodsPicUrl}}"></image>
+                    </view>
+                    <view class="goods_name_num">
+                        <view class="goods_name">{{item.goodsName}}</view>
+                        <view class="goods_num">x{{item.num}}</view>
+                    </view>
+                    <view class="goods_price">${{filters.toFix(item.num * item.goodsPrice)}}</view>
+                </view>
+            </checkbox>
+            <checkbox class="checkbox_item">
+                <view class="note">
+                    <text class="note_title">备注:</text>
+                    <text class="note_content">{{orderDetail.note}}</text>
+                </view>
+            </checkbox>
+        </checkbox-group>
+        <view hidden="{{!isShowGoodsDetail}}" class="fee_warp">
+            <view class="fee">服务费: $ {{orderDetail.serviceFee}}</view>
+            <view class="fee">配送费: $ {{orderDetail.deliverFee}}</view>
+        </view>
+        <view class="total_price">总计: $ {{orderDetail.totalPrice}}</view>
+    </view>
+    <!-- 是否完成订单按钮 -->
+    <view class="complete_order_warp">
+        <view class="complete_btn_warp">
+            <button bindtap="handleTapDeliverOrder" class="complete_btn" type="primary" disabled="{{!isAllChecked}}">
+                完成订单
+            </button>
+        </view>
+        <view class="copy_info_btn_warp">
+            <button bindtap="handleTapCopyInfo" class="copy_info_btn" type="primary" disabled="{{!isAllChecked}}">
+                复制订单信息
+            </button>
+        </view>
+    </view>
+    <!-- 订单其他信息：下单时间，订单编号 -->
+    <view class="other_info">
+        <view class="info_warp">
+            <view class="item ">订单编号: {{orderDetail.orderId}}</view>
+            <view class="item ">下单时间: {{filters.toTimeStr(orderDetail.payTime)}}</view>
+        </view>
+    </view>
+</view>

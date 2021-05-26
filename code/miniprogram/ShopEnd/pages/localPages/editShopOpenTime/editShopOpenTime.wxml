@@ -1,0 +1,32 @@
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells title="营业时间">
+    <mp-cell prop="openDay" title="营业日">
+      <view class="weui-input {{editable?'':'inactive'}}" bind:tap="handleChangeOpenDay">{{selOpenDayText}}</view>
+    </mp-cell>
+    <mp-cell prop="openTime" title="开门时间" ext-class="">
+      <picker disabled="{{!editable}}" data-field="openTime" mode="time" start="05:00" bindchange="handleChangeOpenTime">
+        <view class="weui-input {{editable?'':'inactive'}}">{{openTime}}</view>
+      </picker>
+    </mp-cell>
+    <mp-cell prop="closeTime" title="关门时间">
+      <picker disabled="{{!editable}}" data-field="closeTime" mode="time" end="23:59" bindchange="handleChangeCloseTime">
+        <view class="weui-input {{editable?'':'inactive'}}">{{closeTime}}</view>
+      </picker>
+    </mp-cell>
+  </mp-cells>
+</mp-form>
+<view class="edit_btn_warp">
+  <view class="my_save_btn" hidden="{{editable}}" bindtap="handleTapEdit">修改时间</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapDiscard">放弃修改</view>
+  <view class="my_save_btn" hidden="{{!editable}}" bindtap="handleTapSave">保存修改</view>
+</view>
+<!-- 选择营业日对话框 -->
+<mp-dialog title="请选择营业日" mask="true" show="{{openSelectOpenDayDialog}}" bindbuttontap="hadnleTapSelectOpenDayButton" buttons="{{buttons}}">
+  <checkbox-group bindchange="handleOpenDayChange">
+    <label class="weui-cell weui-check__label" wx:for="{{selOpenDayItems}}" wx:key="value">
+      <view class="item_warp">
+        <checkbox checked="{{index === 6? openDay[0]===1:openDay[index+1] === 1}}" value="{{item.value}}">{{item.text}}</checkbox>
+      </view>
+    </label>
+  </checkbox-group>
+</mp-dialog>

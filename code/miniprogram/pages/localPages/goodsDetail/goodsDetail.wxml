@@ -1,0 +1,45 @@
+<wxs module="filters" src="../../../lib/calculate/calculate.wxs"></wxs>
+<view class="goods_info_warp">
+    <view class="goods_pic_warp">
+        <image class="goods_pic" src="{{goodsInfo.goodsPicUrl}}" mode="widthFix"></image>
+        <view wx:if="{{!goodsInfo.goodsAvailable}}" class="mask">已下架</view>
+    </view>
+    <view class="goods_basic_info_warp">
+        <view class="goods_name">{{goodsInfo.goodsName}}</view>
+        <view class="goods_buy_limit">每单限购: {{goodsInfo.goodsBuyLimit}}</view>
+        <view class="goods_buy_least_limit">每单起购: {{goodsInfo.goodsBuyLeastLimit}}</view>
+        <view class="bottom_warp">
+            <view class="goods_price">$ {{goodsInfo.goodsPrice}}</view>
+            <view wx:if="{{goodsInfo.goodsAvailable}}" class="operation_warp">
+                <view bindtap="handleReduceGoodsNum" hidden="{{!qbuyGoods[goodsInfo.goodsId]}}" data-goods-info="{{goodsInfo}}" class="reduce_btn">
+                    -
+                </view>
+                <view hidden="{{!qbuyGoods[goodsInfo.goodsId]}}" class="goodsNum">
+                    {{qbuyGoods[goodsInfo.goodsId]}}
+                </view>
+                <view bindtap="handleAddGoodsNum" data-goods-info="{{goodsInfo}}" class="add_btn">
+                    +
+                </view>
+            </view>
+        </view>
+        <view class="goods_detail_warp">
+            <view class="goods_detail_title">商品详情</view>
+            <text class="goods_detail">{{goodsInfo.goodsDetail}}</text>
+        </view>
+    </view>
+</view>
+<!-- 当前商店的购物车窗口 -->
+<CartWindow id="popupCart" tops="70%" 
+buyGoods="{{buyGoods}}" 
+bindreduceGoodsNum="handleReduceGoodsNum" 
+bindaddGoodsNum="handleAddGoodsNum" 
+bindclearCart="handleClearCart"></CartWindow>
+
+
+<!-- 底部的统计栏 -->
+<FooterTool isCheckOutActive="{{isCheckOutActive}}" 
+checkOutConsumption="{{checkOutConsumption}}" 
+totalNum="{{totalNum}}" 
+totalPrice="{{totalPrice}}" 
+bindtabCheckOut="handleCheckOutTap" 
+bindtabCart="handleTabCart"></FooterTool>

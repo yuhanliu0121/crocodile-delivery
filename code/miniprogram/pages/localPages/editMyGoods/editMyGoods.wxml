@@ -1,0 +1,65 @@
+<view class="reject_reason" wx:if="{{goodsInfo.rejectReason && goodsInfo.status === 2}}">
+    审核不通过原因：{{goodsInfo.rejectReason}}
+</view>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <form bindsubmit="handleSaveGoods">
+        <mp-cells>
+            <mp-cell prop="goodsPicUrl" title="商品图片" ext-class="goods_img">
+                <view wx:if="{{!img}}" class="add_pic_btm" bind:tap="handleUploadImage">+</view>
+                <view wx:else class="up_img_warp">
+                    <image src="{{img}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                    <view wx:if="{{goodsInfo.status!==1}}" class="delete_pic_btm_warp" bindtap="handleRemoveImg">
+                        <view class="delete_pic_btm">删除</view>
+                    </view>
+                </view>
+            </mp-cell>
+            <mp-cell prop="goodsName" title="商品名称">
+                <input disabled="{{goodsInfo.status===1}}" value="{{goodsInfo.goodsName}}" name="goodsName" class="weui-input" data-field="goodsName" placeholder="请输入商品名称" maxlength="30" />
+            </mp-cell>
+            <mp-cell prop="cateId" title="商品类别" ext-class="">
+                <picker disabled="{{goodsInfo.status===1}}" data-field="cateId" mode="selector" range="{{catePickRng}}" value="{{cateIndex}}" range-key="{{'cateName'}}" bindchange="handleChangeGoodsCate">
+                    <view class="weui-input" style="color:#808080">{{catePickRng[cateIndex].cateName}}</view>
+                </picker>
+            </mp-cell>
+            <mp-cell prop="goodsStock" title="售卖数量">
+                <input disabled="{{goodsInfo.status===1}}" value="{{goodsInfo.goodsStock}}" name="goodsStock" type="number" data-field="goodsStock" class="weui-input" placeholder="请输入售卖数量" />
+            </mp-cell>
+            <mp-cell prop="goodsPrice" title="商品价格">
+                <view style="display:flex; align-items: center;">
+                    $
+                    <input disabled="{{goodsInfo.status===1}}" value="{{goodsInfo.goodsPrice}}" name="goodsPrice" type="digit" data-field="goodsPrice" placeholder="请输入商品价格" />
+                </view>
+            </mp-cell>
+        </mp-cells>
+        <view class="weui-cells__title">选择联系方式</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" style="height:56px">
+                <view class="weui-cell__hd" style="width: 105px">
+                    <picker disabled="{{goodsInfo.status===1}}" name="contactType" bindchange="handleContactTypeChange" value="{{contactTypesIndex}}" range="{{contactType}}" data-field="contactType">
+                        <view class="myui-select">
+                            <view class="contactTypeText">{{contactType[contactTypesIndex]}}</view>
+                            <view class="arrow_warp">
+                                <mp-icon icon="arrow" extClass="arrow" color="#999" size="{{12}}"></mp-icon>
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input disabled="{{goodsInfo.status===1}}" value="{{goodsInfo.contactInfo}}" name="contactInfo" class="weui-input" placeholder="请输入联系方式" />
+                </view>
+            </view>
+        </view>
+        <mp-cells title="商品详情">
+            <mp-cell prop="goodsDetail">
+                <textarea disabled="{{goodsInfo.status===1}}" value="{{goodsInfo.goodsDetail}}" name="goodsDetail" bindinput="handleGoodsDetailChange" class="weui-textarea" placeholder="如：新旧程度 价格是否可议\n租房类信息可包括房屋位置，房租等" style="height: 5.5em" data-field="goodsDetail" maxlength="500" />
+                <view class="weui-textarea-counter">{{goodsDetail.length}}/500</view>
+            </mp-cell>
+        </mp-cells>
+        <view class="bottom_btm">
+            <view class="delete_btm" bindtap="handleDeleteGoods">删除商品</view>
+            <button wx:if="{{goodsInfo.status !== 1}}" form-type="submit" class="save_btm">
+                提交修改
+            </button>
+        </view>
+    </form>
+</mp-form>

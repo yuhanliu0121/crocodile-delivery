@@ -1,0 +1,25 @@
+<!-- 已有地址信息显示模块↓ -->
+<block wx:if="{{addressItem.length !==0 }}">
+  <view wx:for="{{addressItem}}" wx:key="addressId" class="address_item">
+    <view class="address_info" bindtap="handleReturnAddressInfo" data-index="{{index}}">
+      <!-- 地址 -->
+      <view class="addres_text">{{item.street}}, {{item.city}}, {{item.state}}, {{item.zipcode}}</view>
+      <!-- 姓名电话 -->
+      <view class="name_phone">
+        <text class="name">{{item.receiverName}}</text>
+        <text class="phone_num">{{item.phoneNumber}}</text>
+      </view>
+    </view>
+    <view catchtap="handleEditAddress" hover-class="view_hover" hover-stay-time="100" data-index="{{index}}" class="iconfont icon-edit"></view>
+  </view>
+  <navigator class="add_address_btn" url="../editAddress/editAddress">+ 新增地址</navigator>
+</block>
+<!-- 已有地址信息显示模块↑ -->
+<block wx:else>
+  <view style="background-color: ##e4e4e4; height:90vh;width:100%; display:flex;flex-direction:column;justify-content: center;align-items: center;">
+    <view style="color:#aeaeae">--- 还没有添加过收货地址哦 ---</view>
+    <navigator url="../editAddress/editAddress" style="color:blue; text-decoration:underline; padding-top:15rpx">
+      点击添加地址
+    </navigator>
+  </view>
+</block>

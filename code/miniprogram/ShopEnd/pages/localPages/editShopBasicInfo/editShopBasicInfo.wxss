@@ -1,0 +1,52 @@
+Page {
+  background-color: #ededed;
+}
+.shop-info-item {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.shop-info-item .item_title {
+  display: block;
+  width: 105px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.shop-info-item .add_pic_btm {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 50rpx;
+  text-align: center;
+  color: #666;
+  border: 3rpx dashed currentColor;
+}
+.shop-info-item .up_img_warp image {
+  vertical-align: middle;
+  width: 150rpx;
+  height: 150rpx;
+}
+.shop-info-item .up_img_warp .delete_pic_btm_warp {
+  width: 150rpx;
+  padding-top: 0;
+  display: flex;
+  height: 60rpx;
+  justify-content: center;
+  align-items: center;
+}
+.shop-info-item .up_img_warp .delete_pic_btm_warp .delete_pic_btm {
+  width: 60%;
+  color: white;
+  background-color: red;
+  border-radius: 15rpx;
+  padding: 5rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

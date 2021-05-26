@@ -1,0 +1,60 @@
+<view class="page_content" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+        <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+            <!-- 基本信息模块开始 -->
+            <mp-cells title="基本信息">
+                <mp-cell prop="logoUrl" >
+                    <view class="shop-info-item  goods_image">
+                        <text class="item_title">商店logo</text>
+                        <view class="info_input">
+                            <!-- <view wx:if="{{!img}}" class="add_pic_btm" bind:tap="handleUploadImage">
+                                +
+                            </view>
+                            <view wx:else class="up_img_warp">
+                                <image src="{{img}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                                <view class="delete_pic_btm_warp" bindtap="handleRemoveImg">
+                                    <view class="delete_pic_btm">删除</view>
+                                </view>
+                            </view> -->
+                             <view class="up_img_warp">
+                                <image src="{{logoUrl}}" mode="widthFix" bindtap="handlePreviewImg"></image>
+                            </view>
+                        </view>
+                    </view>
+                </mp-cell>
+                <mp-cell prop="shopId" title="商店编号">
+                    <text user-select class="weui-input" style="color:#808080">{{shopId}}</text>
+                </mp-cell>
+                <mp-cell prop="shopName" title="商店名称">
+                    <input disabled="{{true}}" bindinput="handleInputChange" type="text" data-field="shopName" class="weui-input" placeholder="{{shopName}}" maxlength="35" />
+                </mp-cell>
+                <mp-cell prop="shopCate" title="营业类型" ext-class="">
+                    <picker disabled="{{true}}" data-field="shopCate" mode="selector" range="{{selShopCateItems}}" bindchange="handleChangeShopCate">
+                        <view class="weui-input" style="color:#808080">{{shopCateText}}</view>
+                    </picker>
+                </mp-cell>
+                <mp-cell prop="shopPhoneNumber" title="联系电话">
+                    <input disabled="{{true}}" bindinput="handleInputChange" type="number" data-field="shopPhoneNumber" class="weui-input" placeholder="{{shopPhoneNumber}}" />
+                </mp-cell>
+                <mp-cell prop="shopAddress" title="Address">
+                    <input disabled="{{true}}" bindinput="handleInputChange" type="text" data-field="shopAddress" class="weui-input" placeholder="{{shopAddress}}" />
+                </mp-cell>
+                <mp-cell prop="city" title="City">
+                    <input disabled="{{true}}" bindinput="handleInputChange" type="text" data-field="city" class="weui-input" placeholder="{{city}}" />
+                </mp-cell>
+                <mp-cell prop="state" title="State">
+                    <picker disabled="{{true}}" data-field="shopCate" mode="selector" range="{{selStateItems}}" bindchange="handleChangeState">
+                        <view class="weui-input" style="color:#808080">{{state}}</view>
+                    </picker>
+                </mp-cell>
+                <mp-cell prop="zipcode" title="Postal">
+                    <input disabled="{{true}}" bindinput="handleInputChange" type="number" data-field="zipcode" class="weui-input" placeholder="{{zipcode}}" />
+                </mp-cell>
+            </mp-cells>
+            <!-- 基本信息模块结束 -->
+        </mp-form>
+        <view style="padding:60rpx 0">
+            <button class="weui-btn" type="primary" open-type="contact">联系客服修改信息</button>
+        </view>
+    </view>
+</view>

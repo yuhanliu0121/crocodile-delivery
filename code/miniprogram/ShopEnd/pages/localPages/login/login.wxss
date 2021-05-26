@@ -1,0 +1,96 @@
+.page_container {
+  position: relative;
+}
+.page_container .background_img {
+  vertical-align: middle;
+  height: 100vh;
+  width: 100vw;
+}
+.page_container .login {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+}
+.page_container .login .login_btn_warp .owner_btn_warp {
+  flex: 1;
+}
+.page_container .login .login_btn_warp .owner_btn_warp .btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .login_btn_warp .owner_btn_warp .btn_warp .login_btn_owner {
+  font-size: 30rpx;
+  width: 70%;
+}
+.page_container .login .login_btn_warp .owner_btn_warp .reg_text_owner {
+  padding-top: 30rpx;
+  text-decoration: underline;
+  padding-bottom: 24px;
+  color: white;
+  text-align: center;
+  font-size: 25rpx;
+}
+.page_container .login .login_btn_warp .assistant_btn_warp {
+  flex: 1;
+}
+.page_container .login .login_btn_warp .assistant_btn_warp .btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .login_btn_warp .assistant_btn_warp .btn_warp .login_btn_assist {
+  font-size: 30rpx;
+  width: 70%;
+}
+.page_container .login .login_btn_warp .assistant_btn_warp .reg_text_assist {
+  padding-top: 30rpx;
+  text-decoration: underline;
+  padding-bottom: 24px;
+  color: white;
+  text-align: center;
+  font-size: 25rpx;
+}
+.page_container .login .login_problem {
+  color: white;
+  text-align: center;
+  font-size: 30rpx;
+}
+.page_container .login .customer_service_btn_warp {
+  display: flex;
+  justify-content: center;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn {
+  font-size: 30rpx;
+  width: 70%;
+  background-color: transparent;
+  color: white;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn button::after {
+  border: none;
+}
+.page_container .login .customer_service_btn_warp .customer_service_btn input {
+  outline: none;
+  border: none;
+  list-style: none;
+}
+.sel_shops_dialog .item_warp {
+  text-align: start;
+}
+.sel_shops_dialog radio .wx-radio-input.wx-radio-input-checked::before {
+  width: 15px;
+  height: 15px;
+  background-color: #0abc08;
+  border-radius: 50%;
+  content: "";
+  top: 50%;
+  left: 50%;
+}
+.sel_shops_dialog radio .wx-radio-input.wx-radio-input-checked {
+  background: white !important;
+}
+.input_dialog .input_warp {
+  margin-top: 30rpx;
+  border-bottom: 2rpx solid black;
+}
+.input_dialog .input_warp .input_text {
+  text-align: start;
+}

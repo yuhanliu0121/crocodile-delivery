@@ -1,0 +1,7 @@
+.inactive {
+  color: gray;
+}
+.edit_btn_warp {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,60 @@
+Page {
+  padding-bottom: 120rpx;
+}
+.goods_img .add_pic_btm {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 50rpx;
+  text-align: center;
+  color: #666;
+  border: 3rpx dashed currentColor;
+}
+.goods_img .up_img_warp {
+  margin: 0 15rpx;
+}
+.goods_img .up_img_warp image {
+  vertical-align: middle;
+  width: 150rpx;
+  height: 150rpx;
+}
+.goods_img .up_img_warp .delete_pic_btm_warp {
+  width: 150rpx;
+  padding-top: 0;
+  display: flex;
+  height: 60rpx;
+  justify-content: center;
+  align-items: center;
+}
+.goods_img .up_img_warp .delete_pic_btm_warp .delete_pic_btm {
+  width: 60%;
+  color: white;
+  background-color: red;
+  border-radius: 15rpx;
+  padding: 5rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.bottom_btm {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 90rpx;
+  position: fixed;
+  border-top: 1rpx solid #ccc;
+  z-index: 9999;
+}
+.bottom_btm .save_btm {
+  border-radius: 0;
+  width: 100%;
+  line-height: 90rpx;
+  background-color: var(--themeColor);
+  color: white;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+}

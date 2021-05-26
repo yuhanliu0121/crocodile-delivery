@@ -1,0 +1,32 @@
+<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+    <block wx:for="{{tabs}}" wx:key="title">
+        <view class="tab-content" slot="tab-content-{{index}}">
+            <!-- 近一周订单开始 -->
+            <block wx:if="{{index === 0}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshRecentOrderFlag}}" bindrefresherrefresh="handleRefreshRecentOrder" bindscrolltolower="handleGetMoreRecentOrder">
+                    <block wx:if="{{recentOrder.length !== 0}}">
+                        <Order wx:for="{{recentOrder}}" wx:key="orderId" orderDetail="{{item}}"></Order>
+                    </block>
+                    <view wx:if="{{recentOrder.length !== 0}}" class="padding"></view>
+                    <view wx:if="{{recentOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 近一周没有订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 近一周订单结束 -->
+            <!-- 更早订单开始 -->
+            <block wx:if="{{index === 1}}">
+                <scroll-view enable-back-to-top class="container" scroll-y refresher-enabled refresher-triggered="{{refreshOldOrderFlag}}" bindrefresherrefresh="handleRefreshOldOrder" bindscrolltolower="handleGetMoreOldOrder">
+                    <block wx:if="{{oldOrder.length !== 0}}">
+                        <Order wx:for="{{oldOrder}}" wx:key="orderId" orderDetail="{{item}}"></Order>
+                    </block>
+                    <view wx:if="{{oldOrder.length !== 0}}" class="padding"></view>
+                    <view wx:if="{{oldOrder.length === 0}}" class="no_new_info">
+                        <view class="tip">--- 没有更早的订单哦~~ ---</view>
+                    </view>
+                </scroll-view>
+            </block>
+            <!-- 更早订单结束 -->
+        </view>
+    </block>
+</mp-tabs>

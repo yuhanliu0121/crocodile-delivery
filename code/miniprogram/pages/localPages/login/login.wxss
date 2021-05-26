@@ -1,0 +1,8 @@
+button{
+  position: absolute;
+  left: 20%;
+  top: 5%;
+  width: 60%;
+  font-size: 50rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,50 @@
+<view class="page_container">
+  <image class="background_img" src="cloud://env-miamielm-5gliunnq19c0a342.656e-env-miamielm-5gliunnq19c0a342-1304795284/system/login2.jpg" bindload="handleLoadBgpComplete" />
+  <!-- 店主登录按钮 -->
+  <view hidden="{{!showPage}}" class="login">
+    <view class="login_btn_warp">
+      <view class="owner_btn_warp">
+        <view class="btn_warp">
+          <button class="login_btn_owner" type="primary" bindtap="handleLogin" data-type="owner">
+            以店主身份登录
+          </button>
+        </view>
+        <view class="reg_text_owner">
+          <text bind:tap="handleTapRegisterShop">新商入驻</text>
+        </view>
+      </view>
+      <!-- 店员登录按钮 -->
+      <view class="assistant_btn_warp">
+        <view class="btn_warp">
+          <button class="login_btn_assist" type="primary" bindtap="handleLogin" data-type="assistant">
+            以店员身份登录
+          </button>
+        </view>
+        <view class="reg_text_assist">
+          <text bind:tap="handleTapRegisterShopAssist">成为店员</text>
+        </view>
+      </view>
+    </view>
+    <!-- view的联系客服点击后会弹出对话框告知官方邮箱 -->
+    <!-- <view class="login_problem" bind:tap="handleTapLoginProblem">登陆遇到问题？ 点击联系客服</view> -->
+    <view class="customer_service_btn_warp">
+      <button class="customer_service_btn" open-type="contact">登陆遇到问题？ 点击联系客服</button>
+    </view>
+  </view>
+</view>
+<!-- 选择登录商店对话框 -->
+<mp-dialog title="选择登录的商店" ext-class="sel_shops_dialog" mask="true" show="{{openSelectShopDialog}}" bindbuttontap="hadnleTapSelectShopDialogButton" bindclose="handleSelectShopDialogClose" buttons="{{buttons}}">
+  <radio-group bindchange="handleRadioChange">
+    <label class="weui-cell weui-check__label" wx:for="{{shopsToLogin}}" wx:key="shopId">
+      <view class="item_warp">
+        <radio checked="{{radioChecked}}" value="{{index}}">{{item.shopName}}</radio>
+      </view>
+    </label>
+  </radio-group>
+</mp-dialog>
+<!-- 输入店铺认证码对话框 -->
+<mp-dialog title="{{inputDialogTitle}}" ext-class="input_dialog" mask="true" show="{{openInputDialog}}" mask-closable="{{true}}" bindbuttontap="handleTapInputDialogButton" buttons="{{buttons}}">
+  <view class="input_warp">
+    <input class="input_text" type="text" placeholder="{{inputDialogPlaceholder}}" placeholder-style="text-align:start" cursor-spacing="250rpx" bindinput="handleChangeDialogInput" value="{{dialogInputText}}" />
+  </view>
+</mp-dialog>
