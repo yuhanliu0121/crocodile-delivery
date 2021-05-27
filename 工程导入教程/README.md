@@ -106,7 +106,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 #### 修改跳蚤市场及登录页面背景图
 
 1. 打开云开发控制台选择存储
-2. 将「样例数据」文件夹下的「system」文件夹上传
+2. 将「system」文件夹上传
 3. 复制login.jpg, login2.jpg和fleaMarket.png的FileID
 
 ![copySystemPicAddress](README_FIG/copySystemPicAddress.gif)
@@ -132,7 +132,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 4. 输入aadminlogin1017进入管理端
 5. 点击「设置首页轮播图」
 6. 将原来空白的轮播图片删除
-7. 点击「＋」上传新图片
+7. 点击「＋」将「图片」文件夹下的图片上传给对应的商品
 8. 对轮播图片2执行同样的操作
 9. 页面底部点击「保存」
 
@@ -142,8 +142,8 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 1. 打开云开发控制台
 2. 新建名为「smBP9uFxmTxRv」和「smBxLqkKS9xxn」的文件夹
-3. 在「smBxLqkKS9xxn」中上传logoValencia.jpg并复制FileID
-4. 在「smBP9uFxmTxRv」中上传chefchen_logo.jpg并复制FileID
+3. 在「smBxLqkKS9xxn」中上传「图片」文件夹下的logoValencia.jpg并复制FileID
+4. 在「smBP9uFxmTxRv」中上传「图片」文件夹下的chefchen_logo.jpg并复制FileID
 
 ![findShopLogoURL](README_FIG/findShopLogoURL.gif)
 
