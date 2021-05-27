@@ -1,4 +1,4 @@
-![logo](README_FIG/logo.jpg)
+![logo](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/logo.jpg?raw=true)
 
 # 概述 Overview
 
@@ -83,7 +83,7 @@ The C-side has two main businesses: delivery service and flea market
 
 find a product-> add to basket->checkout->select address->order placing->wait for delivery
 
-![delivery_service](README_FIG/delivery_service.gif)
+![delivery_service](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/delivery_service.gif?raw=true)
 
 ### 跳蚤市场业务流程 Procedure of Flea-market Business 
 点击“发布商品”->填写商品信息->上传->等待审核->通过审核商品上架->等待买主联系
@@ -97,7 +97,7 @@ click "upload"->provide product info->upload->wait for reviewing->approve->wait 
 
 if the product does not get approved, the customer may revise the product info, wait for the reviewing again and repeat this process until it gets approved.
 
-![upload_second_hand_goods](README_FIG/upload_second_hand_goods.gif)
+![upload_second_hand_goods](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/upload_second_hand_goods.gif?raw=true)
 
 ## 商家端 Business Side
 商家端的业务包括订单管理和商店管理
@@ -115,7 +115,7 @@ order receiving->order taking->order picking->delivery
 * customers can cancel an order at any time before it is taken.
 * if the order is taken, only the B-side has access to cancel it. Customers would have to make a phone call for cancellation.
 
-![order_handling](README_FIG/order_handling.gif)
+![order_handling](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/order_handling.gif?raw=true)
 
 ### 商店管理 Shop Management 
 
@@ -159,7 +159,7 @@ The procedure of adding a shop assistant is: go to shop management tab->assistan
 
 The demo below displays the procedure of adding a new assistant and what you can do to him.
 
-![add_assistant](README_FIG/add_assistant.gif)
+![add_assistant](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/add_assistant.gif?raw=true)
 
 ## 管理端 Administration Side
 
@@ -207,6 +207,6 @@ the demo below displays the procedure of how C-side review the product uploaded 
 
 
 
-![review_customer_goods](README_FIG/review_customer_goods.gif)
+![review_customer_goods](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/README_FIG/review_customer_goods.gif?raw=true)
 
 
