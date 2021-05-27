@@ -173,6 +173,6 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 #### 结束
 
-到此为止，除了各个商品的图片会报「渲染错误」外，整个程序应该能够正常跑通了。如果这个项目对你有帮助的话，希望随手留下一个star，谢谢
+到此为止，除了各个商品的图片会报「渲染错误」外，整个程序应该能够正常跑通了。如果这个项目对你有帮助的话，希望随手留下一个star，谢谢！！
 
 ![thankyou](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/%E5%B7%A5%E7%A8%8B%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/README_FIG/thankyou.jpg?raw=true)
