@@ -14,7 +14,7 @@
 #### 建立本地工程目录
 我这里的项目文件夹取名叫yourProjectFolder，实际根据自己的工程取名就好
 
-![makeYourProjectFolder](README_FIG/makeYourProjectFolder.gif)
+![makeYourProjectFolder](images/makeYourProjectFolder.gif)
 
 #### 在微信开发者工具中新建工程
 
@@ -24,7 +24,7 @@
 确保勾选「小程序 云开发」
 点击新建
 
-![buildYourProject](README_FIG/buildYourProject.gif)
+![buildYourProject](images/buildYourProject.gif)
 
 #### 获取你的openid
 
@@ -35,13 +35,13 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 你可以像我一样新建一个文本文件临时保存以下。如果你知道win+v可以查看剪贴板的话那其实也没必要专门新建一个文件
 
-![findYourOpenId](README_FIG/findYourOpenId.gif)
+![findYourOpenId](images/findYourOpenId.gif)
 
 #### 获取你的云环境id
 
 点击云开发，在云开发控制台中点击设置，复制云环境id
 
-![findYourCloundEnvId](README_FIG/findYourCloudEnvId.gif)
+![findYourCloundEnvId](images/findYourCloudEnvId.gif)
 
 
 #### 将下载的项目代码复制到工程目录
@@ -53,7 +53,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 复制到工程目录下
 
-![overrideYourProject](README_FIG/overrideYourProject.gif)
+![overrideYourProject](images/overrideYourProject.gif)
 
 
 #### 修改项目配置
@@ -66,7 +66,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 5. 将所有结果替换成现在的云环境id
 6. 保存
 
-![editConfig](README_FIG/editConfig.gif)
+![editConfig](images/editConfig.gif)
 
 
 #### 上传部署所有云函数
@@ -75,7 +75,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 右键点击每一个函数并选择**上传并部署：云端安装依赖（不上传node_modules）**
 
-![uploadCloudFunction](README_FIG/uploadCloudFunction.gif)
+![uploadCloudFunction](images/uploadCloudFunction.gif)
 
 #### 修改样例数据
 
@@ -86,7 +86,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 这样一来这些数据就会被视作由你创建
 
-![editDataOpenid.gif](README_FIG/editDataOpenid.gif)
+![editDataOpenid.gif](images/editDataOpenid.gif)
 
 
 #### 将修改后的数据导入云数据库
@@ -99,7 +99,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 6. 将样例数据导入数据表并修改数据表权限为所有人可读写（后期可以根据需要修改数据表权限，这里为了保证程序跑通故意设置为所有人可读写）
 7. 对所有的数据表进行同样的操作
 
-![upLoadData.gif](README_FIG/upLoadData.gif)
+![upLoadData.gif](images/upLoadData.gif)
 
 至此，项目中用到的云函数和数据库数据已经成功适配了当前的云环境。小程序在此时已能运行，只是会报渲染错误的问题。这是因为在云存储中无法找到需要加载的图片。现在我们来解决这个问题
 
@@ -109,20 +109,20 @@ openid是每个微信用户在微信小程序内的唯一识别码
 2. 将「system」文件夹上传
 3. 复制login.jpg, login2.jpg和fleaMarket.png的FileID
 
-![copySystemPicAddress](README_FIG/copySystemPicAddress.gif)
+![copySystemPicAddress](images/copySystemPicAddress.gif)
 
 4. 打开数据库
 5. 点击ugShop表格
 6. 将logoUrl字段的值改为刚才复制的fleaMarket.png的FileID (win+V可以调出剪贴板)
 
-![editUgShopLogoURL](README_FIG/editUgShopLogoURL.gif)
+![editUgShopLogoURL](images/editUgShopLogoURL.gif)
 
 7. 回到开发者工具编辑器，按ctrl+p，输入selAppEnd，点击selAppEnd.wxml跳转到对应文件
 8. 将文件第二行image组件的src属性的值改为之前复制的login.jpg的FileID，然后保存
 9. 同样通过ctrl+p输入login，点击miniprogram\ShopEnd\pages\localPages\login 下的login.wxml跳转到对应文件 (注意：动图里的跳转与这里不一致)
 10. 同样修改第二行image组件的src属性值为login2.jpg的FileID
     
-![editLoginImageURL](README_FIG/editLoginImageURL.gif)
+![editLoginImageURL](images/editLoginImageURL.gif)
 
 #### 设置首页轮播图
 
@@ -136,7 +136,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 8. 对轮播图片2执行同样的操作
 9. 页面底部点击「保存」
 
-![editSwiperPic](README_FIG/editSwiperPic.gif)
+![editSwiperPic](images/editSwiperPic.gif)
 
 #### 设置valencia连锁超市和chef chen中餐馆的商店logo
 
@@ -145,14 +145,14 @@ openid是每个微信用户在微信小程序内的唯一识别码
 3. 在「smBxLqkKS9xxn」中上传「图片」文件夹下的logoValencia.jpg并复制FileID
 4. 在「smBP9uFxmTxRv」中上传「图片」文件夹下的chefchen_logo.jpg并复制FileID
 
-![findShopLogoURL](README_FIG/findShopLogoURL.gif)
+![findShopLogoURL](images/findShopLogoURL.gif)
 
 5. 打开数据库
 6. 打开「shop」数据集
 7. 查看第一条数据的shopName，如果是valencia连锁超市，则将该条数据下「logoUrl」字段的值改为logoValencia.jpg的FileID
 8. 同理将另一条数据的「logoUrl」字段的值改为chefchen_logo.jpg的FileID
 
-![editShopLogoUrl](README_FIG/editShopLogoUrl.gif)
+![editShopLogoUrl](images/editShopLogoUrl.gif)
 
 
 #### 设置商品图片（以无线小音箱为例）
@@ -166,7 +166,7 @@ openid是每个微信用户在微信小程序内的唯一识别码
 8. 点击「＋」
 9. 上传「图片」文件夹中的小音箱图片
 
-![editGoodsPic](README_FIG/editGoodsPic.gif)
+![editGoodsPic](images/editGoodsPic.gif)
 
 由于商品较多，一个一个的操作可能会比较麻烦。你也可以通过写代码的方式批量上传图片到云存储，获取它们的FileID再赋值给数据库里对应的商品。但是相比起来，手动上传图片可能还更方便一些
 
@@ -175,4 +175,4 @@ openid是每个微信用户在微信小程序内的唯一识别码
 
 到此为止，除了各个商品的图片会报「渲染错误」外，整个程序应该能够正常跑通了。如果这个项目对你有帮助的话，希望随手留下一个star，谢谢！！
 
-![thankyou](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/%E5%B7%A5%E7%A8%8B%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/README_FIG/thankyou.jpg?raw=true)
+![thankyou](https://github.com/yuhanliu0121/crocodile-delivery/blob/main/%E5%B7%A5%E7%A8%8B%E5%AF%BC%E5%85%A5%E6%95%99%E7%A8%8B/images/thankyou.jpg?raw=true)
